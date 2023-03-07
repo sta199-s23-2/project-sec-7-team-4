@@ -80,8 +80,16 @@ glimpse(air_quality)
 
 ## Glimpse of data
 
+Note: The `risk_factors` and `population` datasets will be joined to create one dataset, but right now they are separate. We needed a `population` dataset because the `risk_factors` variables are in terms of raw numbers.
+
 ```{r}
 #| label: load-data-2
+
+risk_factors <- read_csv(file = 'data/number-of-deaths-by-risk-factor.csv')
+population <- read_csv(file = 'data/populations.csv')
+
+glimpse(risk_factors)
+glimpse(population)
 
 ```
 
