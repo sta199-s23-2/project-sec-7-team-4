@@ -22,13 +22,17 @@ library(tidyverse)
 
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
-    -   The data was originally collected
+    -   The data was originally collected by the Environmental Health Tracking Network. This data which provides values about air pollution was collected from Air Quality Systems (AQS) from 4,000 monitoring stations in the years 2001 - 2011.
 
 -   Write a brief description of the observations.
+
+    -   The observations
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
+
+    How do air pollution levels differ between states from the North, South, East, and West of the mainland United States?
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
@@ -80,16 +84,8 @@ glimpse(air_quality)
 
 ## Glimpse of data
 
-Note: The `risk_factors` and `population` datasets will be joined to create one dataset, but right now they are separate. We needed a `population` dataset because the `risk_factors` variables are in terms of raw numbers.
-
 ```{r}
 #| label: load-data-2
-
-risk_factors <- read_csv(file = 'data/number-of-deaths-by-risk-factor.csv')
-population <- read_csv(file = 'data/populations.csv')
-
-glimpse(risk_factors)
-glimpse(population)
 
 ```
 
