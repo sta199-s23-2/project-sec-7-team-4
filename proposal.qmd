@@ -1,5 +1,5 @@
 ---
-title: "Project title"
+title: "An Exploration of Health Through Air Quality Measures and Substance Abuse"
 subtitle: "Proposal"
 format: html
 editor: visual
