@@ -18,7 +18,11 @@ library(tidyverse)
 
 -   Identify the source of the data.
 
+    -   The data is from the Center for Disease Control (CDC )and it is "Air Quality Measures on the National Environmental Health Tracking Network"
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
+
+    -   The data was originally collected
 
 -   Write a brief description of the observations.
 
@@ -30,7 +34,7 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature 
+## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
@@ -42,8 +46,10 @@ library(tidyverse)
 
 ```{r}
 #| label: load-data-1
+air_quality <- read_csv("data/Air_Quality_Measures_on_the_National_Environmental_Health_Tracking_Network (1).csv")
+ 
+glimpse(air_quality)
 
-# add code here
 ```
 
 # Data 2
@@ -64,7 +70,7 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature 
+## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
@@ -77,7 +83,6 @@ library(tidyverse)
 ```{r}
 #| label: load-data-2
 
-# add code here
 ```
 
 # Data 3
@@ -98,7 +103,7 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-## Literature 
+## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
