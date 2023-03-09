@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project title</title>
+<title>An Exploration of Health Through Air Quality Measures and Substance Abuse</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -195,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project title</h1>
+<h1 class="title">An Exploration of Health Through Air Quality Measures and Substance Abuse</h1>
 <p class="subtitle lead">Proposal</p>
 </div>
 
@@ -224,15 +224,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p>
 <ul>
-<li>The data was originally collected</li>
+<li>The data was originally collected by the Environmental Health Tracking Network. This data which provides values about air pollution was collected from Air Quality Systems (AQS) from 4,000 monitoring stations in the years 2001 - 2011.</li>
 </ul></li>
-<li><p>Write a brief description of the observations.</p></li>
+<li><p>Write a brief description of the observations.</p>
+<ul>
+<li>The observations</li>
+</ul></li>
 </ul>
 </section>
 <section id="research-question" class="level2">
 <h2 class="anchored" data-anchor-id="research-question">Research question</h2>
 <ul>
-<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p></li>
+<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p>
+<p>How do air pollution levels differ between states from the North, South, East, and West of the mainland United States?</p></li>
 <li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p></li>
 <li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p></li>
 </ul>
@@ -328,9 +332,8 @@ $ MonitorOnly         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 </section>
 <section id="glimpse-of-data-1" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data-1">Glimpse of data</h2>
-<p>Note: The <code>risk_factors</code> and <code>population</code> datasets will be joined to create one dataset, but right now they are separate. We needed a <code>population</code> dataset because the <code>risk_factors</code> variables are in terms of raw numbers.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>risk_factors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">'data/number-of-deaths-by-risk-factor.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>risk_factors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/number-of-deaths-by-risk-factor.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 6468 Columns: 32
 ── Column specification ────────────────────────────────────────────────────────
@@ -341,7 +344,7 @@ dbl (30): Year, Unsafe water source, Unsafe sanitation, No access to handwas...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">'data/populations.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/populations.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 16798 Columns: 12
 ── Column specification ────────────────────────────────────────────────────────

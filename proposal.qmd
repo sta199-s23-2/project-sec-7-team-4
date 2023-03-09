@@ -99,6 +99,12 @@ glimpse(air_quality)
 ```{r}
 #| label: load-data-2
 
+risk_factors <- read_csv("data/number-of-deaths-by-risk-factor.csv")
+population <- read_csv("data/populations.csv")
+
+glimpse(risk_factors)
+glimpse(population)
+
 ```
 
 # Data 3
