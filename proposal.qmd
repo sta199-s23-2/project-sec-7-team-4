@@ -18,15 +18,15 @@ library(tidyverse)
 
 -   Identify the source of the data.
 
-    -   The data is from the Center for Disease Control (CDC )and it is "Air Quality Measures on the National Environmental Health Tracking Network"
+    -   The data is from the Center for Disease Control (CDC), and it is "Air Quality Measures on the National Environmental Health Tracking Network."
 
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
-    -   The data was originally collected by the Environmental Health Tracking Network. This data which provides values about air pollution was collected from Air Quality Systems (AQS) from 4,000 monitoring stations in the years 2001 - 2011.
+    -   The data was originally collected by the Environmental Health Tracking Network. This data provides values about air pollution collected from Air Quality Systems (AQS) from 4,000 monitoring stations across the United States in the years 2001 - 2011.
 
 -   Write a brief description of the observations.
 
-    -   The observations
+    -   The data set provides information about the amount of air pollution in urban areas in states and certain counties across the United States. Each observation was one specific recording of air pollution at a certain monitoring station known by its state and county.
 
 ## Research question
 
