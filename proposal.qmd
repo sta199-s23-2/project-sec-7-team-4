@@ -62,7 +62,7 @@ glimpse(air_quality)
 
 -   Identify the source of the data.
 
-    -   The population data from from the World Census and the data about death risk factors was acquired from the World Health Organization.
+    -   The population data is from the World Census and the data about death risk factors was acquired from the World Health Organization.
 
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
@@ -70,7 +70,7 @@ glimpse(air_quality)
 
 -   Write a brief description of the observations.
 
-    -   Each row represents one country in one year and each column represents a cause of death, such as from nutrition, alcochol/drug abuse, and air pollution, among other things. 
+    -   Each row represents one country in one year and each column represents a cause of death, such as from nutrition, alcochol/drug abuse, and air pollution, among other things.
 
 ## Research question
 
@@ -80,11 +80,11 @@ glimpse(air_quality)
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-    -   The research topic is about how different health factors are related to substance abuse. We hypothesize that greater substance abuse deaths would be related to more deaths from nutrition, smoking, and vitamin deficiencies, representing a pattern of poor choices and habits. 
+    -   The research topic is about how different health factors are related to substance abuse. We hypothesize that greater substance abuse deaths would be related to more deaths from nutrition, smoking, and vitamin deficiencies, representing a pattern of poor choices and habits.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-    -   The types of variables in this question are mostly quantitative since the number of deaths from substance abuse is a continuous variable. Most of the other death risk factors are also continuous quantitative variables, although it would be possible to add a categorical variable representing continent later in the project. 
+    -   The types of variables in this question are mostly quantitative since the number of deaths from substance abuse is a continuous variable. Most of the other death risk factors are also continuous quantitative variables, although it would be possible to add a categorical variable representing continent later in the project.
 
 ## Literature
 
@@ -113,17 +113,29 @@ glimpse(population)
 
 -   Identify the source of the data.
 
+    -   The data is from the 2018 National Survey on Drug Use and Health (NSDUH).
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    -   This dataset was put together for the CORGIS Dataset Project by Austin Cory Bart, Ryan Whitcomb, Joung Min Choi, and Bo Guan. The data was collected from the Substance Abuse and Mental Health Data Archive (SAMHDA).
+
 -   Write a brief description of the observations.
+
+    -   This dataset is about substance abuse (cigarettes, marijuana, cocaine, alcohol, tobacco) among different age groups and states, separated by year. Each row represents one state in one year, with columns indicating the rates of use, total number of people who use, rates of use disorder, and total number of people who suffer from use disorder in the past year and in the past month for each drug by people in various age groups.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    -   Which state(s) in the US has/have the worst teenage substance abuse problem, and how has the situation there changed from 2002-2018?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+    -   The primary research topic is teenage substance abuse, and which state suffers most from this problem.
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+    -   The two main categorical variables in this research question are State and Year. Most other variables such as total use and use rate for various drugs, as well as population, are quantitative variables.
 
 ## Literature
 
@@ -138,5 +150,7 @@ glimpse(population)
 ```{r}
 #| label: load-data-3
 
-# add code here
+drugs <- read_csv("data/drugs.csv")
+
+glimpse(drugs)
 ```
