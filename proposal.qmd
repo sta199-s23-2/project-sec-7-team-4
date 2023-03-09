@@ -58,17 +58,29 @@ glimpse(air_quality)
 
 -   Identify the source of the data.
 
+    -   The population data from from the World Census and the data about death risk factors was acquired from the World Health Organization.
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    -   The World census estimates population based on census, survey, and administrative information. The World Health Organization death risk factors data was reported by member states from Civil Registration and Vital Statistics, which records births, deaths, and causes of death.
+
 -   Write a brief description of the observations.
+
+    -   Each row represents one country in one year and each column represents a cause of death, such as from nutrition, alcochol/drug abuse, and air pollution, among other things. 
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    -   What health risk factors (like diet, health, physical activity, etc.) have the greatest association with substance abuse death among the largest countries in population?
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+    -   The research topic is about how different health factors are related to substance abuse. We hypothesize that greater substance abuse deaths would be related to more deaths from nutrition, smoking, and vitamin deficiencies, representing a pattern of poor choices and habits. 
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+    -   The types of variables in this question are mostly quantitative since the number of deaths from substance abuse is a continuous variable. Most of the other death risk factors are also continuous quantitative variables, although it would be possible to add a categorical variable representing continent later in the project. 
 
 ## Literature
 

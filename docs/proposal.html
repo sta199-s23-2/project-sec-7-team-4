@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -53,7 +58,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -66,7 +71,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -157,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -207,35 +212,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'readr' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.2.2</code></pre>
-</div>
 </div>
 <section id="data-1" class="level1">
 <h1>Data 1</h1>
 <section id="introduction-and-data" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-data">Introduction and data</h2>
 <ul>
-<li><p>Identify the source of the data.</p></li>
-<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p></li>
+<li><p>Identify the source of the data.</p>
+<ul>
+<li>The data is from the Center for Disease Control (CDC )and it is “Air Quality Measures on the National Environmental Health Tracking Network”</li>
+</ul></li>
+<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p>
+<ul>
+<li>The data was originally collected</li>
+</ul></li>
 <li><p>Write a brief description of the observations.</p></li>
 </ul>
 </section>
 <section id="research-question" class="level2">
 <h2 class="anchored" data-anchor-id="research-question">Research question</h2>
 <ul>
-<li>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</li>
-<li>A description of the research topic along with a concise statement of your hypotheses on this topic.</li>
-<li>Identify the types of variables in your research question. Categorical? Quantitative?</li>
+<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p></li>
+<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p></li>
+<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p></li>
 </ul>
 </section>
 <section id="literature" class="level2">
@@ -249,7 +248,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="glimpse-of-data" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>air_quality <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Air_Quality_Measures_on_the_National_Environmental_Health_Tracking_Network (1).csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 218635 Columns: 14
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (8): MeasureName, MeasureType, StratificationLevel, StateName, CountyNam...
+dbl (5): MeasureId, StateFips, CountyFips, ReportYear, MonitorOnly
+num (1): Value
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(air_quality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 218,635
+Columns: 14
+$ MeasureId           &lt;dbl&gt; 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83…
+$ MeasureName         &lt;chr&gt; "Number of days with maximum 8-hour average ozone …
+$ MeasureType         &lt;chr&gt; "Counts", "Counts", "Counts", "Counts", "Counts", …
+$ StratificationLevel &lt;chr&gt; "State x County", "State x County", "State x Count…
+$ StateFips           &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 4, 4, 4, 4, 4, 4,…
+$ StateName           &lt;chr&gt; "Alabama", "Alabama", "Alabama", "Alabama", "Alaba…
+$ CountyFips          &lt;dbl&gt; 1027, 1051, 1073, 1079, 1089, 1097, 1101, 1117, 11…
+$ CountyName          &lt;chr&gt; "Clay", "Elmore", "Jefferson", "Lawrence", "Madiso…
+$ ReportYear          &lt;dbl&gt; 1999, 1999, 1999, 1999, 1999, 1999, 1999, 1999, 19…
+$ Value               &lt;dbl&gt; 33, 5, 39, 28, 31, 32, 15, 45, 3, 0, 1, 5, 10, 85,…
+$ Unit                &lt;chr&gt; "No Units", "No Units", "No Units", "No Units", "N…
+$ UnitName            &lt;chr&gt; "No Units", "No Units", "No Units", "No Units", "N…
+$ DataOrigin          &lt;chr&gt; "Monitor Only", "Monitor Only", "Monitor Only", "M…
+$ MonitorOnly         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -258,17 +287,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="introduction-and-data-1" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-data-1">Introduction and data</h2>
 <ul>
-<li><p>Identify the source of the data.</p></li>
-<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p></li>
-<li><p>Write a brief description of the observations.</p></li>
+<li><p>Identify the source of the data.</p>
+<ul>
+<li>The population data from from the World Census and the data about death risk factors was acquired from the World Health Organization.</li>
+</ul></li>
+<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p>
+<ul>
+<li>The World census estimates population based on census, survey, and administrative information. The World Health Organization death risk factors data was reported by member states from Civil Registration and Vital Statistics, which records births, deaths, and causes of death.</li>
+</ul></li>
+<li><p>Write a brief description of the observations.</p>
+<ul>
+<li>Each row represents one country in one year and each column represents a cause of death, such as from nutrition, alcochol/drug abuse, and air pollution, among other things.</li>
+</ul></li>
 </ul>
 </section>
 <section id="research-question-1" class="level2">
 <h2 class="anchored" data-anchor-id="research-question-1">Research question</h2>
 <ul>
-<li>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</li>
-<li>A description of the research topic along with a concise statement of your hypotheses on this topic.</li>
-<li>Identify the types of variables in your research question. Categorical? Quantitative?</li>
+<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p>
+<ul>
+<li>What health risk factors (like diet, health, physical activity, etc.) have the greatest association with substance abuse death among the largest countries in population?</li>
+</ul></li>
+<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p>
+<ul>
+<li>The research topic is about how different health factors are related to substance abuse. We hypothesize that greater substance abuse deaths would be related to more deaths from nutrition, smoking, and vitamin deficiencies, representing a pattern of poor choices and habits.</li>
+</ul></li>
+<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p>
+<ul>
+<li>The types of variables in this question are mostly quantitative since the number of deaths from substance abuse is a continuous variable. Most of the other death risk factors are also continuous quantitative variables, although it would be possible to add a categorical variable representing continent later in the project.</li>
+</ul></li>
 </ul>
 </section>
 <section id="literature-1" class="level2">
@@ -281,8 +328,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="glimpse-of-data-1" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data-1">Glimpse of data</h2>
+<p>Note: The <code>risk_factors</code> and <code>population</code> datasets will be joined to create one dataset, but right now they are separate. We needed a <code>population</code> dataset because the <code>risk_factors</code> variables are in terms of raw numbers.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>risk_factors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">'data/number-of-deaths-by-risk-factor.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 6468 Columns: 32
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (2): Entity, Code
+dbl (30): Year, Unsafe water source, Unsafe sanitation, No access to handwas...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">'data/populations.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 16798 Columns: 12
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): FIPS, GENC, Country/Area Name
+dbl (9): Row, Year, Population, Annual Growth Rate %, Area (sq km), Density ...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(risk_factors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 6,468
+Columns: 32
+$ Entity                                     &lt;chr&gt; "Afghanistan", "Afghanistan…
+$ Code                                       &lt;chr&gt; "AFG", "AFG", "AFG", "AFG",…
+$ Year                                       &lt;dbl&gt; 1990, 1991, 1992, 1993, 199…
+$ `Unsafe water source`                      &lt;dbl&gt; 7554.050, 7359.677, 7650.43…
+$ `Unsafe sanitation`                        &lt;dbl&gt; 5887.748, 5732.770, 5954.80…
+$ `No access to handwashing facility`        &lt;dbl&gt; 5412.315, 5287.891, 5506.65…
+$ `Household air pollution from solid fuels` &lt;dbl&gt; 22388.50, 22128.76, 22873.7…
+$ `Non-exclusive breastfeeding`              &lt;dbl&gt; 3221.139, 3150.560, 3331.34…
+$ `Discontinued breastfeeding`               &lt;dbl&gt; 156.09755, 151.53985, 156.6…
+$ `Child wasting`                            &lt;dbl&gt; 22778.85, 22292.69, 23102.2…
+$ `Child stunting`                           &lt;dbl&gt; 10408.439, 10271.976, 10618…
+$ `Low birth weight for gestation`           &lt;dbl&gt; 12168.56, 12360.64, 13459.5…
+$ `Secondhand smoke`                         &lt;dbl&gt; 4234.808, 4219.597, 4371.90…
+$ `Alcohol use`                              &lt;dbl&gt; 356.5293, 320.5985, 293.257…
+$ `Drug use`                                 &lt;dbl&gt; 208.3254, 217.7697, 247.833…
+$ `Diet low in fruits`                       &lt;dbl&gt; 8538.964, 8642.847, 8961.52…
+$ `Diet low in vegetables`                   &lt;dbl&gt; 7678.718, 7789.773, 8083.23…
+$ `Unsafe sex`                               &lt;dbl&gt; 387.1676, 394.4483, 422.453…
+$ `Low physical activity`                    &lt;dbl&gt; 4221.303, 4252.630, 4347.33…
+$ `High fasting plasma glucose`              &lt;dbl&gt; 21610.07, 21824.94, 22418.7…
+$ `High total cholesterol`                   &lt;dbl&gt; 9505.532, NA, NA, NA, NA, 1…
+$ `High body-mass index`                     &lt;dbl&gt; 7701.581, 7747.775, 7991.01…
+$ `High systolic blood pressure`             &lt;dbl&gt; 28183.98, 28435.40, 29173.6…
+$ Smoking                                    &lt;dbl&gt; 6393.667, 6429.253, 6561.05…
+$ `Iron deficiency`                          &lt;dbl&gt; 726.4313, 739.2458, 873.485…
+$ `Vitamin A deficiency`                     &lt;dbl&gt; 9344.132, 9330.182, 9769.84…
+$ `Low bone mineral density`                 &lt;dbl&gt; 374.8441, 379.8542, 388.130…
+$ `Air pollution`                            &lt;dbl&gt; 26598.01, 26379.53, 27263.1…
+$ `Outdoor air pollution`                    &lt;dbl&gt; 4383.83, 4426.36, 4568.91, …
+$ `Diet high in sodium`                      &lt;dbl&gt; 2737.198, 2741.185, 2798.56…
+$ `Diet low in whole grains`                 &lt;dbl&gt; 11381.38, 11487.83, 11866.2…
+$ `Diet low in nuts and seeds`               &lt;dbl&gt; 7299.867, 7386.764, 7640.62…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 16,798
+Columns: 12
+$ Row                        &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, …
+$ FIPS                       &lt;chr&gt; "AF", "AF", "AF", "AF", "AF", "AF", "AF", "…
+$ GENC                       &lt;chr&gt; "AF", "AF", "AF", "AF", "AF", "AF", "AF", "…
+$ `Country/Area Name`        &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan"…
+$ Year                       &lt;dbl&gt; 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1…
+$ Population                 &lt;dbl&gt; 8150368, 8284473, 8425333, 8573217, 8728408…
+$ `Annual Growth Rate %`     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ `Area (sq km)`             &lt;dbl&gt; 652230, 652230, 652230, 652230, 652230, 652…
+$ `Density (per sq km)`      &lt;dbl&gt; 12.5, 12.7, 12.9, 13.1, 13.4, 13.6, 13.9, 1…
+$ `Total Fertility Rate`     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ `Life Expectancy at Birth` &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ `Under-5 Mortality Rate`   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -299,9 +422,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="research-question-2" class="level2">
 <h2 class="anchored" data-anchor-id="research-question-2">Research question</h2>
 <ul>
-<li>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</li>
-<li>A description of the research topic along with a concise statement of your hypotheses on this topic.</li>
-<li>Identify the types of variables in your research question. Categorical? Quantitative?</li>
+<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p></li>
+<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p></li>
+<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p></li>
 </ul>
 </section>
 <section id="literature-2" class="level2">
@@ -315,7 +438,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="glimpse-of-data-2" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data-2">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -392,7 +515,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
