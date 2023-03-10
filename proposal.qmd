@@ -147,7 +147,7 @@ glimpse(population)
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-    -   The primary research topic is teenage substance abuse, and which state suffers most from this problem.
+    -   The primary research topic is teenage substance abuse, and which state suffers most from this problem. Our hypothesis is that states with the most large cities, such as California and Texas, would have the worst teenage substance abuse problem.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
@@ -157,7 +157,7 @@ glimpse(population)
 
 -   Find one published credible article on the topic you are interested in researching.
 
-    -   Teenage Substance Abuse: Impact on The Family System and Parents\' Coping Strategies
+    -   Teenage Substance Abuse: Impact on The Family System and Parents' Coping Strategies
 
     -   https://www.researchgate.net/profile/Prudence-Mafa/publication/348350895_SOCIAL_SCIENCES_HUMANITIES_Teenage_Substance\
         \_Abuse_Impact_on_The_Family_System_and_Parents'\_Coping_Strategies/links/5ff9\
