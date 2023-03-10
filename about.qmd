@@ -11,5 +11,6 @@ This project was developed by **\[Team 4\]** For [STA 199: Introduction to Data 
 -   Team member 2: One sentence description of Team member 2 (e.g., year, major, etc.).
     -   Ethan Chen is a Freshman studying mathematics and computer science.
 -   Team member 3: One sentence description of Team member 3 (e.g., year, major, etc.).
+    -   Ayush Batra is a freshman studying statistical science and computer science.
 -   Team member 4: One sentence description of Team member 4 (e.g., year, major, etc.).
 -   ...
