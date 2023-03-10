@@ -32,7 +32,7 @@ library(tidyverse)
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-    How do air pollution levels differ between states from the North, South, East, and West of the mainland United States?
+    -   How do air pollution levels differ between states from the North, South, East, and West of the mainland United States?
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
@@ -42,9 +42,17 @@ library(tidyverse)
 
 -   Find one published credible article on the topic you are interested in researching.
 
+    -   Air Pollution Index Systems in the United States and Canada
+
+    -   https://www.tandfonline.com/doi/abs/10.1080/00022470.1976.10470272
+
 -   Provide a one paragraph summary about the article.
 
+    -   This study surveyed all available air pollution indices through literature review and conversations with air pollution control agencies in the US and found that 35 out of 55 metropolitan air pollution control agencies used some form of daily air pollution index. The study developed a system to classify the indices into 14 different types based on four criteria. It was found that no two indices were exactly the same. The survey results and agency comments were used to identify characteristics and criteria for a uniform air pollution index.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+    -   This study focused on building an air pollution index across metropolitan areas in the US, which we can contract with our findings in metropolitan areas as well as other more rural regions in the US. In addition, we can analyze potential factors that lead to certain indices being higher than that of their region.
 
 ## Glimpse of data
 
@@ -90,9 +98,17 @@ glimpse(air_quality)
 
 -   Find one published credible article on the topic you are interested in researching.
 
+    -   Global Burden Of Disease Studies: Implications For Mental And Substance Use Disorders
+
+    -   https://www.healthaffairs.org/doi/full/10.1377/hlthaff.2016.0082
+
 -   Provide a one paragraph summary about the article.
 
+    -   This paper explores a number of mental and substance use disorders along with their prevalence and likelihood to contribute to excessive mortality given a population. The contributions to mortality are calculated using comparative risk assessment for risk-factor analysis detailed in the study. The study concluded that in most countries, mental health as a policy area doesn't have the priority that is commensurate with the extent of its burden and the potential to reduce that burden.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+    -   Our research question will identify correlations between substance abuse problems and their correlation with each country's mortality rate as a result of these abuse problems. This study will be a baseline on which we can observe which countries contribute to a higher and lower mortality rate as a result of their substance abuse prevalence.
 
 ## Glimpse of data
 
@@ -141,9 +157,19 @@ glimpse(population)
 
 -   Find one published credible article on the topic you are interested in researching.
 
+    -   Teenage Substance Abuse: Impact on The Family System and Parents\' Coping Strategies
+
+    -   https://www.researchgate.net/profile/Prudence-Mafa/publication/348350895_SOCIAL_SCIENCES_HUMANITIES_Teenage_Substance\
+        \_Abuse_Impact_on_The_Family_System_and_Parents'\_Coping_Strategies/links/5ff9\
+        6151a6fdccdcb83ef1e9/SOCIAL-SCIENCES-HUMANITIES-Teenage-Substance-Abuse-Impact-on-The-Family-System-and-Parents-Coping-Strategies.pdf
+
 -   Provide a one paragraph summary about the article.
 
+    -   The study examines the effects of teen substance addiction on families and the coping mechanisms employed by parents. The data were analyzed thematically after nine parents of teenagers in outpatient therapy were interviewed. The discovery of substance usage produces chaos in the household and has an impact on the marriage. The majority of parents try to find a solution on their own, but they frequently lack the required assistance. According to the study, the entire family should be included in efforts to intervene against substance misuse, not just the addicted person.
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+    -   This study can be used in discussion to how the problem has been combatted from 2002 - 2018, and whether efforts to include the family in substance abuse related problems has been used, and whether it has been effective. It's different than our research question as it's a study following nine families specifically as opposed to a wider survey.
 
 ## Glimpse of data
 
