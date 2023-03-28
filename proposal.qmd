@@ -32,7 +32,7 @@ library(tidyverse)
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-    -   How do air pollution levels differ between states from the North, South, East, and West of the mainland United States?
+    -   How do air pollution levels differ between states from the West, Southwest, Midwest, Southeast, and Northeast as defined by the National Geographic Society of the mainland United States from the years 2008-2011?
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
@@ -92,7 +92,7 @@ glimpse(air_quality)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-    -   The types of variables in this question are mostly quantitative since the number of deaths from substance abuse and other factors are all continuous variable. The response variable will be deaths from substance abuse, while the predictor variables could include deaths caused by other factors. 
+    -   The types of variables in this question are mostly quantitative since the number of deaths from substance abuse and other factors are all continuous variable. The response variable will be deaths from substance abuse, while the predictor variables could include deaths caused by other factors.
 
 ## Literature
 
