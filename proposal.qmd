@@ -84,7 +84,7 @@ glimpse(air_quality)
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-    -   What health risk factors (like diet, health, physical activity, etc.) have the greatest association with substance abuse death among the largest countries in population?
+    -   What health risk factors (like diet, health, physical activity, etc.) have the greatest association with substance abuse death among the most populated countries in recent years?
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
@@ -92,7 +92,7 @@ glimpse(air_quality)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-    -   The types of variables in this question are mostly quantitative since the number of deaths from substance abuse is a continuous variable. Most of the other death risk factors are also continuous quantitative variables, although it would be possible to add a categorical variable representing continent later in the project.
+    -   The types of variables in this question are mostly quantitative since the number of deaths from substance abuse and other factors are all continuous variable. The response variable will be deaths from substance abuse, while the predictor variables could include deaths caused by other factors. 
 
 ## Literature
 
@@ -108,7 +108,7 @@ glimpse(air_quality)
 
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
 
-    -   Our research question will identify correlations between substance abuse problems and their correlation with each country's mortality rate as a result of these abuse problems. This study will be a baseline on which we can observe which countries contribute to a higher and lower mortality rate as a result of their substance abuse prevalence.
+    -   Our research question will identify relationships between substance abuse problems and other risk factors such as physical exercise, nutrition, chronic diseases. This study will be a baseline on which we can observe which countries contribute to a higher and lower mortality rate as a result of their substance abuse prevalence.
 
 ## Glimpse of data
 
@@ -116,7 +116,7 @@ glimpse(air_quality)
 #| label: load-data-2
 
 risk_factors <- read_csv("data/number-of-deaths-by-risk-factor.csv")
-population <- read_csv("data/populations.csv")
+population <- read_csv("data/population.csv")
 
 glimpse(risk_factors)
 glimpse(population)

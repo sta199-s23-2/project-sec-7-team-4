@@ -228,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><p>Write a brief description of the observations.</p>
 <ul>
-<li>The data set provides information about the amount of air pollution in areas in states and certain counties across the United States. Each observation was one specific recording of air pollution at a certain monitoring station known by its state and county.</li>
+<li>The data set provides information about the amount of air pollution in urban areas in states and certain counties across the United States. Each observation was one specific recording of air pollution at a certain monitoring station known by its state and county.</li>
 </ul></li>
 </ul>
 </section>
@@ -237,12 +237,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p>
 <ul>
-<li>How do air pollution levels differ between states from the West, Southwest, Midwest, Southeast, and Northeast as defined by the National Geographic Society of the mainland United States from the years 2008-2011?</li>
+<li>How do air pollution levels differ between states from the North, South, East, and West of the mainland United States?</li>
 </ul></li>
-<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p>
-<p>The research topic is to explore air pollution levels across the United States based on Air Quality Systems which are located across the United States. We hypothesize that there will be a substantial difference in air pollution across the regions in the United States. We hypothesize highest levels of air pollution will be in the Southwest due to a large presence of oil drilling and the lowest levels of air pollution will be in the Northeast or West due to their locations near the coast which allows for ocean air to reduce air pollution.</p></li>
-<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p>
-<p>The variables “MeasureName,” “MeasureType,” “StratificationLevel,” “StateName,” “CountyName,” “Unit,” “UnitName,” “DataOrigin,” and “Monitor Only” are categorical. The variables “MeasureId,” “StateFips,” “CountyFips,” “ReportYear”and “Value” are quantitative.</p></li>
+<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p></li>
+<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p></li>
 </ul>
 </section>
 <section id="literature" class="level2">
@@ -259,7 +257,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p>
 <ul>
-<li>This study focused on building an air pollution index across metropolitan areas in the US, which we can contrast with our findings in metropolitan areas as well as some rural regions in the United States. In addition, we can analyze air pollution data and how that differs between regions in the United States. Our research question goes beyond focusing on a city level view of air pollution mainly focused upon and how to create a uniform air pollution index in this article.</li>
+<li>This study focused on building an air pollution index across metropolitan areas in the US, which we can contract with our findings in metropolitan areas as well as other more rural regions in the US. In addition, we can analyze potential factors that lead to certain indices being higher than that of their region.</li>
 </ul></li>
 </ul>
 </section>
@@ -324,7 +322,7 @@ $ MonitorOnly         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 <ul>
 <li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p>
 <ul>
-<li>What health risk factors (like diet, health, physical activity, etc.) have the greatest association with substance abuse death among the largest countries in population?</li>
+<li>What health risk factors (like diet, health, physical activity, etc.) have the greatest association with substance abuse death among the most populated countries in recent years?</li>
 </ul></li>
 <li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p>
 <ul>
@@ -332,7 +330,7 @@ $ MonitorOnly         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 </ul></li>
 <li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p>
 <ul>
-<li>The types of variables in this question are mostly quantitative since the number of deaths from substance abuse is a continuous variable. Most of the other death risk factors are also continuous quantitative variables, although it would be possible to add a categorical variable representing continent later in the project.</li>
+<li>The types of variables in this question are mostly quantitative since the number of deaths from substance abuse and other factors are all continuous variable. The response variable will be deaths from substance abuse, while the predictor variables could include deaths caused by other factors.</li>
 </ul></li>
 </ul>
 </section>
@@ -350,7 +348,7 @@ $ MonitorOnly         &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 </ul></li>
 <li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p>
 <ul>
-<li>Our research question will identify correlations between substance abuse problems and their correlation with each country’s mortality rate as a result of these abuse problems. This study will be a baseline on which we can observe which countries contribute to a higher and lower mortality rate as a result of their substance abuse prevalence.</li>
+<li>Our research question will identify relationships between substance abuse problems and other risk factors such as physical exercise, nutrition, chronic diseases. This study will be a baseline on which we can observe which countries contribute to a higher and lower mortality rate as a result of their substance abuse prevalence.</li>
 </ul></li>
 </ul>
 </section>
@@ -368,13 +366,13 @@ dbl (30): Year, Unsafe water source, Unsafe sanitation, No access to handwas...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/populations.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/population.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 16798 Columns: 12
+<pre><code>Rows: 13584 Columns: 3
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
-chr (3): FIPS, GENC, Country/Area Name
-dbl (9): Row, Year, Population, Annual Growth Rate %, Area (sq km), Density ...
+chr (1): CountryCode
+dbl (2): Year, total_population
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
@@ -418,20 +416,11 @@ $ `Diet low in nuts and seeds`               &lt;dbl&gt; 7299.867, 7386.764, 764
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 16,798
-Columns: 12
-$ Row                        &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, …
-$ FIPS                       &lt;chr&gt; "AF", "AF", "AF", "AF", "AF", "AF", "AF", "…
-$ GENC                       &lt;chr&gt; "AF", "AF", "AF", "AF", "AF", "AF", "AF", "…
-$ `Country/Area Name`        &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan"…
-$ Year                       &lt;dbl&gt; 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1…
-$ Population                 &lt;dbl&gt; 8150368, 8284473, 8425333, 8573217, 8728408…
-$ `Annual Growth Rate %`     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ `Area (sq km)`             &lt;dbl&gt; 652230, 652230, 652230, 652230, 652230, 652…
-$ `Density (per sq km)`      &lt;dbl&gt; 12.5, 12.7, 12.9, 13.1, 13.4, 13.6, 13.9, 1…
-$ `Total Fertility Rate`     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ `Life Expectancy at Birth` &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ `Under-5 Mortality Rate`   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</code></pre>
+<pre><code>Rows: 13,584
+Columns: 3
+$ CountryCode      &lt;chr&gt; "ARB", "CSS", "CEB", "EAS", "EAP", "EMU", "ECS", "ECA…
+$ Year             &lt;dbl&gt; 1960, 1960, 1960, 1960, 1960, 1960, 1960, 1960, 1960,…
+$ total_population &lt;dbl&gt; 92495902, 4190810, 91401583, 1042475394, 896492991, 2…</code></pre>
 </div>
 </div>
 </section>
