@@ -15,4 +15,8 @@ In order to achieve our goal, we will be performing statistical analysis on the 
 
 # Methodology
 
+...
+
+-   Comparison: We'll compare the results of our air pollution survey with Census population data, population increase, total land area, number of firms, per capita income, metropolitan area (boolean), and population over 65
+
 # Results
