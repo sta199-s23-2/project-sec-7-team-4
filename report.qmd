@@ -40,7 +40,7 @@ concentrations <- air_quality |>
 
 ```
 
-
+The distribution of average county PM 2.5 concentration in the United States from 2008-2011 can be seen with a histogram. 
 
 ```{r}
 #| label: histogram
@@ -56,6 +56,18 @@ concentrations |>
        subtitle = "2008 - 2011")
 
 ```
+
+The distribution of annual average PM 2.5 concentrations is right skewed, so there are a few counties with large outliers. 
+
+```{r}
+#| label: median-concentration
+
+concentrations |>
+  summarize(mean_avg_concentration = mean(avg_concentration))
+
+```
+
+The median annual average PM 2.5 concentration is 9.64 micrograms per cubic meter. This is the typical value for a county in the United States from 2008-2011. 
 
 -   Comparison: We'll compare the results of our air pollution survey with Census population data, population increase, total land area, number of firms, per capita income, metropolitan area (boolean), and population over 65
 
