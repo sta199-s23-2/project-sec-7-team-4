@@ -15,7 +15,43 @@ In order to achieve our goal, we will be performing statistical analysis on the 
 
 # Methodology
 
-...
+```{r}
+#| label: load-packages
+
+library(tidyverse)
+library(tidymodels)
+
+```
+
+```{r}
+#| label: load-data
+
+air_quality <- read_csv(file = "data/Air_Quality_Measures_on_the_National_Environmental_Health_Tracking_Network (1).csv")
+```
+
+```{r}
+#| label: select-statistic
+
+air_quality <- air_quality |>
+  filter(MeasureName == "Annual average ambient concentrations of PM 2.5 in micrograms per cubic meter, based on seasonal averages and daily measurement (monitor and modeled data)") |>
+  select(StateName, CountyName, ReportYear, Value) |>
+  rename(avg_concentration = Value)
+
+```
+
+```{r}
+#| label: histogram
+
+air_quality |>
+  filter(ReportYear >= 2008) |>
+  ggplot(aes(x = avg_concentration)) +
+  geom_histogram(fill = 'steelblue', color = 'black') +
+  labs(x = "Annual Average Concentration of PM 2.5 (micrograms per cubic meter",
+       y = "Count",
+       title = "Distribution of County Fine Particle Concentration",
+       subtitle = "2008 - 2011")
+
+```
 
 -   Comparison: We'll compare the results of our air pollution survey with Census population data, population increase, total land area, number of firms, per capita income, metropolitan area (boolean), and population over 65
 
