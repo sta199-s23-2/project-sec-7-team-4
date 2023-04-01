@@ -57,7 +57,7 @@ concentrations |>
 
 ```
 
-The distribution of annual average PM 2.5 concentrations is right skewed, so there are a few counties with large outliers. 
+The distribution of annual average PM 2.5 concentrations is right skewed, so there are a few counties with large outliers. In general, concentrations range between about 4 and 22 micrograms per cubic meter. 
 
 ```{r}
 #| label: median-concentration
@@ -68,6 +68,31 @@ concentrations |>
 ```
 
 The median annual average PM 2.5 concentration is 9.64 micrograms per cubic meter. This is the typical value for a county in the United States from 2008-2011. 
+
+We are exploring how air quality differs by geographic region as defined by the National Geographic Society. The regions include the Northeast, Southeast, Midwest, Southwest, and West.
+
+```{r}
+#| label: state-regions
+
+northeast <- c("Maine", "Vermont", "New Hampshire", "Massachusetts", 
+               "Rhode Island", "Connecticut", "New York", "New Jersey",
+               "Pennsylvania")
+
+southeast <- c("Delaware", "Maryland", "West Virginia", "Virginia", 
+               "North Carolina", "District of Columbia", "Kentucky",
+               "Tennessee", "South Carolina", "Georgia", "Florida", 
+               "Alabama", "Mississippi", "Arkansas", "Louisiana")
+
+midwest <- c("Ohio", "Indiana", "Michigan", "Wisconsin", "Illinois",
+             "Minnesota", "Iowa", "Missouri", "North Dakota", 
+             "South Dakota", "Nebraska", "Kansas")
+
+southwest <- c("Arizona", "New Mexico", "Oklahoma", "Texas")
+
+west <- c("Montana", "Wyoming", "Colorado", "Utah", "Idaho", "Nevada",
+          "Washington", "Oregon", "California", "Hawaii", "Alaska")
+
+```
 
 -   Comparison: We'll compare the results of our air pollution survey with Census population data, population increase, total land area, number of firms, per capita income, metropolitan area (boolean), and population over 65
 
