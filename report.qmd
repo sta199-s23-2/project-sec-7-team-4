@@ -15,35 +15,37 @@ In order to achieve our goal, we will be performing statistical analysis on the 
 
 # Methodology
 
+To start our analysis, we must load in the neecessary packages and data. 
+
 ```{r}
-#| label: load-packages
+#| label: load-packages-data
 
 library(tidyverse)
 library(tidymodels)
 
-```
-
-```{r}
-#| label: load-data
-
 air_quality <- read_csv(file = "data/Air_Quality_Measures_on_the_National_Environmental_Health_Tracking_Network (1).csv")
+
 ```
+
+The `air_quality` dataset contains several statistics on fine particle concentrations and ozone concentrations on the county level in the United States from 2001 to 2008. Our analysis will focus on the annual average ambient concentrations of PM 2.5 based on seasonal averages and daily measurement, and we will be looking at the data from 2008 to 2011.  
 
 ```{r}
 #| label: select-statistic
 
-air_quality <- air_quality |>
-  filter(MeasureName == "Annual average ambient concentrations of PM 2.5 in micrograms per cubic meter, based on seasonal averages and daily measurement (monitor and modeled data)") |>
+concentrations <- air_quality |>
+  filter(MeasureName == "Annual average ambient concentrations of PM 2.5 in micrograms per cubic meter, based on seasonal averages and daily measurement (monitor and modeled data)",
+         ReportYear >= 2008) |>
   select(StateName, CountyName, ReportYear, Value) |>
   rename(avg_concentration = Value)
 
 ```
 
+
+
 ```{r}
 #| label: histogram
 
-air_quality |>
-  filter(ReportYear >= 2008) |>
+concentrations |>
   ggplot(aes(x = avg_concentration)) +
   geom_histogram(binwidth = 0.5,
                  fill = 'steelblue', 
