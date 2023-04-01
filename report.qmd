@@ -45,7 +45,9 @@ air_quality <- air_quality |>
 air_quality |>
   filter(ReportYear >= 2008) |>
   ggplot(aes(x = avg_concentration)) +
-  geom_histogram(fill = 'steelblue', color = 'black') +
+  geom_histogram(binwidth = 0.5,
+                 fill = 'steelblue', 
+                 color = 'black') +
   labs(x = "Annual Average Concentration of PM 2.5 (micrograms per cubic meter",
        y = "Count",
        title = "Distribution of County Fine Particle Concentration",
