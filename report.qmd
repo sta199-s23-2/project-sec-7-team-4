@@ -92,7 +92,45 @@ southwest <- c("Arizona", "New Mexico", "Oklahoma", "Texas")
 west <- c("Montana", "Wyoming", "Colorado", "Utah", "Idaho", "Nevada",
           "Washington", "Oregon", "California", "Hawaii", "Alaska")
 
+concentrations <- concentrations |>
+  mutate(Region = case_when(
+    StateName %in% northeast ~ "Northeast",
+    StateName %in% southeast ~ "Southeast",
+    StateName %in% midwest ~ "Midwest",
+    StateName %in% southwest ~ "Southwest",
+    StateName %in% west ~ "West"
+    )
+  )
+
 ```
+
+Using this division of regions, the Southeast and Midwest regions have the most counties, while the Northeast region has the least. However, all regions have at least 800 counties. 
+
+```{r}
+#| label: num-counties
+
+concentrations |>
+  ggplot(aes(x = fct_infreq(Region))) +
+  geom_bar(fill = 'steelblue', color = 'black') +
+  labs(x = "Region",
+       y = "Number of Counties in Dataset",
+       title = "Counties by Region")
+
+```
+
+We compared the median annual concentration of fine particles for counties in each region to get an initial look of the regions suffering from poor air quality the most. 
+
+```{r}
+#| label: compare-aq
+
+concentrations |>
+  group_by(Region) |>
+  summarize(median_concen = median(avg_concentration)) |>
+  arrange(-median_concen)
+
+```
+
+The Southeast region has the greatest median concentration of PM 2.5 particles (10.6 micrograms per cubic meter), while the West region has the lowest (6.97 micrograms per cubic meter). 
 
 -   Comparison: We'll compare the results of our air pollution survey with Census population data, population increase, total land area, number of firms, per capita income, metropolitan area (boolean), and population over 65
 
