@@ -139,11 +139,13 @@ concentrations |>
   geom_boxplot(fill = 'steelblue') +
   labs(x = "Annual Average Concentration of PM 2.5 (micrograms per cubic meter",
        y = "Region",
-       title = "Fine Particle Concentration by Region")
+       title = "County Fine Particle Concentration by Region")
 
 ```
 
-Looking at the distributions of average PM 2.5 concentration by region, it is evident that there are many counties in the West region with high average PM 2.5 concentrations. 
+Looking at the distributions of average PM 2.5 concentration by region, it is evident that there are many counties in the West region with high average PM 2.5 concentrations. In fact, several of the counties with the greatest average PM 2.5 concentrations were from the West region. 
+
+
 
 -   Comparison: We'll compare the results of our air pollution survey with Census population data, population increase, total land area, number of firms, per capita income, metropolitan area (boolean), and population over 65
 
