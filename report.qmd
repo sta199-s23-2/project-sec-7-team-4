@@ -152,6 +152,7 @@ Looking at the distributions of average PM 2.5 concentration by region, it is ev
 
 ```{r}
 #| label: northeast-interval
+#| eval: FALSE
 
 set.seed(123)
 
@@ -170,6 +171,8 @@ boot_df |>
 
 # Results
 
-From the data analysis and visualization, we have arrived at various values and summary statistics from our dataset which explores air quality measures in different regions across the United States based on certain counties. Overall, the median annual average PM 2.5 concentration was 9.64 micrograms per cubic meter. Then, the median annual average PM 2.5 concentration was calculated for each region. Southeast had the largest median annual average PM 2.5 concentration with a value of 10.6 micrograms per cubic meter followed by the Midwest with 9.6 micrograms per cubic meter, then Northeast with 9.3 micrograms per cubic meter, Southwest with 8.3 micrograms per cubic meter, and West with 7.0 micrograms per cubic meter. A visualization of a histogram visually displays how the median differs between the regions. It is important to note that several of the regions have outliers especially the West region.
+The data analysis and visualization techniques we used included creating a histogram was created to make meaning of the mean annual average concentration of fine particle concentration calculated to ensure the mean calculated is significant for most data points which is true as the data peaks near the 9.64 mean value calculated. We also created a counties by region graph to understand the statistical significance of the concentration data calculated for each region. Since the number of counties is the greatest for the Southeast and the Midwest region, the results of these two regions resembles have the highest chance of resembling closest to reality making them more statistically significant than the regions Southwest, West and Northeast.  
+
+Our data analysis allowed us to find that overall the median annual average PM 2.5 concentration was 9.64 micrograms per cubic meter. Then, the median annual average PM 2.5 concentration was calculated for each region. Southeast had the largest median annual average PM 2.5 concentration with a value of 10.6 micrograms per cubic meter followed by the Midwest with 9.6 micrograms per cubic meter, then Northeast with 9.3 micrograms per cubic meter, Southwest with 8.3 micrograms per cubic meter, and West with 7.0 micrograms per cubic meter. A visualization of a histogram visually displays how the median differs between the regions. It is important to note that several of the regions have outliers especially the West region.
 
 Based on the visualizations and summary statistics, we came to the conclusion that the Southeast had the highest median annual average PM 2.5 concentration while the West had the lowest median annual average PM 2.5 concentration compared to the five main regions within the United States.
