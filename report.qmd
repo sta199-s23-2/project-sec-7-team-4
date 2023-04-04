@@ -52,9 +52,10 @@ concentrations |>
   geom_histogram(binwidth = 0.5,
                  fill = 'steelblue', 
                  color = 'black') +
-  labs(x = "Annual Average Concentration of PM 2.5 (micrograms per cubic meter",
+  labs(x = "Annual Average Concentration of PM 2.5 (micrograms per cubic meter)",
        y = "Count",
        title = "Distribution of County Fine Particle Concentration",
+       caption = "data from 'Air Quality Measures on the National Environmental Health \n Tracking Network' collected by the Environmental Protection Agency (EPA)",
        subtitle = "2008 - 2011")
 
 ```
@@ -116,6 +117,7 @@ concentrations |>
   geom_bar(fill = 'steelblue', color = 'black') +
   labs(x = "Region",
        y = "Number of Counties in Dataset",
+       caption = "data from 'Air Quality Measures on the National Environmental Health \n Tracking Network' collected by the Environmental Protection Agency (EPA)",
        title = "Counties by Region")
 
 ```
@@ -141,6 +143,7 @@ concentrations |>
   geom_boxplot(fill = 'steelblue') +
   labs(x = "Annual Average Concentration of PM 2.5 (micrograms per cubic meter)",
        y = "Region",
+       caption = "data from 'Air Quality Measures on the National Environmental Health \n Tracking Network' collected by the Environmental Protection Agency (EPA)",
        title = "County Fine Particle Concentration by Region")
 
 ```
