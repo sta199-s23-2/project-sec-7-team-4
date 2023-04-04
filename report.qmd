@@ -15,7 +15,7 @@ In order to achieve our goal, we will be performing statistical analysis on the 
 
 # Methodology
 
-To start our analysis, we must load in the neecessary packages and data. 
+To start our analysis, we must load in the neecessary packages and data.
 
 ```{r}
 #| label: load-packages-data
@@ -27,7 +27,7 @@ air_quality <- read_csv(file = "data/Air_Quality_Measures_on_the_National_Enviro
 
 ```
 
-The `air_quality` dataset contains several statistics on fine particle concentrations and ozone concentrations on the county level in the United States from 2001 to 2008. Our analysis will focus on the annual average ambient concentrations of PM 2.5 based on seasonal averages and daily measurement, and we will be looking at the data from 2008 to 2011.  
+The `air_quality` dataset contains several statistics on fine particle concentrations and ozone concentrations on the county level in the United States from 2001 to 2008. Our analysis will focus on the annual average ambient concentrations of PM 2.5 based on seasonal averages and daily measurement, and we will be looking at the data from 2008 to 2011.
 
 ```{r}
 #| label: select-statistic
@@ -40,7 +40,7 @@ concentrations <- air_quality |>
 
 ```
 
-The distribution of average county PM 2.5 concentration in the United States from 2008-2011 can be seen with a histogram. 
+The distribution of average county PM 2.5 concentration in the United States from 2008-2011 can be seen with a histogram.
 
 ```{r}
 #| label: histogram
@@ -57,7 +57,7 @@ concentrations |>
 
 ```
 
-The distribution of annual average PM 2.5 concentrations is right skewed, so there are a few counties with large outliers. In general, concentrations range between about 4 and 22 micrograms per cubic meter. 
+The distribution of annual average PM 2.5 concentrations is right skewed, so there are a few counties with large outliers. In general, concentrations range between about 4 and 22 micrograms per cubic meter.
 
 ```{r}
 #| label: median-concentration
@@ -67,7 +67,7 @@ concentrations |>
 
 ```
 
-The median annual average PM 2.5 concentration is 9.64 micrograms per cubic meter. This is the typical value for a county in the United States from 2008-2011. 
+The median annual average PM 2.5 concentration is 9.64 micrograms per cubic meter. This is the typical value for a county in the United States from 2008-2011.
 
 We are exploring how air quality differs by geographic region as defined by the National Geographic Society. The regions include the Northeast, Southeast, Midwest, Southwest, and West.
 
@@ -104,7 +104,7 @@ concentrations <- concentrations |>
 
 ```
 
-Using this division of regions, the Southeast and Midwest regions have the most counties, while the Northeast region has the least. However, all regions have at least 800 counties. 
+Using this division of regions, the Southeast and Midwest regions have the most counties, while the Northeast region has the least. However, all regions have at least 800 counties.
 
 ```{r}
 #| label: num-counties
@@ -118,7 +118,7 @@ concentrations |>
 
 ```
 
-We compared the median annual concentration of fine particles for counties in each region to get an initial look of the regions suffering from poor air quality the most. 
+We compared the median annual concentration of fine particles for counties in each region to get an initial look of the regions suffering from poor air quality the most.
 
 ```{r}
 #| label: compare-aq
@@ -130,7 +130,7 @@ concentrations |>
 
 ```
 
-The Southeast region has the greatest median concentration of PM 2.5 particles (10.6 micrograms per cubic meter), while the West region has the lowest (6.97 micrograms per cubic meter). 
+The Southeast region has the greatest median concentration of PM 2.5 particles (10.6 micrograms per cubic meter), while the West region has the lowest (6.97 micrograms per cubic meter).
 
 ```{r}
 
@@ -143,9 +143,7 @@ concentrations |>
 
 ```
 
-Looking at the distributions of average PM 2.5 concentration by region, it is evident that there are many counties in the West region with high average PM 2.5 concentrations. In fact, several of the counties with the greatest average PM 2.5 concentrations were from the West region. 
-
-
+Looking at the distributions of average PM 2.5 concentration by region, it is evident that there are many counties in the West region with high average PM 2.5 concentrations. In fact, several of the counties with the greatest average PM 2.5 concentrations were from the West region.
 
 -   Comparison: We'll compare the results of our air pollution survey with Census population data, population increase, total land area, number of firms, per capita income, metropolitan area (boolean), and population over 65
 
