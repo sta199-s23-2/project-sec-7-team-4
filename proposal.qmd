@@ -38,6 +38,8 @@ library(tidyverse)
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
+    The air quality variable in our research question is quantitative, while the region variable in our research question is categorical.
+
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
