@@ -126,6 +126,12 @@ We compared the median annual concentration of fine particles for counties in ea
 concentrations |>
   group_by(Region) |>
   summarize(median_concen = median(avg_concentration)) |>
+  ggplot(aes(x = Region, y = median_concen)) +
+  geom_col(fill = 'steelblue', color = 'black')
+
+concentrations |>
+  group_by(Region) |>
+  summarize(median_concen = median(avg_concentration)) |>
   arrange(-median_concen)
 
 ```
