@@ -145,6 +145,28 @@ concentrations |>
 
 Looking at the distributions of average PM 2.5 concentration by region, it is evident that there are many counties in the West region with high average PM 2.5 concentrations. In fact, several of the counties with the greatest average PM 2.5 concentrations were from the West region.
 
+```{r}
+#| label: northeast-interval
+
+set.seed(123)
+
+boot_df <- concentrations |>
+  filter(region == "") |>
+  specify(response = avg_concentration) |>
+  generate(reps = 5000, type = "bootstrap") |>
+  calculate(stat = "median")
+
+boot_df |>
+  summarize(lower = quantile(stat, 0.025),
+            upper = quantile(stat, 0.975))
+
+````
+
+
 -   Comparison: We'll compare the results of our air pollution survey with Census population data, population increase, total land area, number of firms, per capita income, metropolitan area (boolean), and population over 65
 
 # Results
+
+From the data analysis and visualization, we have arrived at various values and summary statistics from our dataset which explores air quality measures in different regions across the United States based on certain counties. Overall, the median annual average PM 2.5 concentration was 9.64 micrograms per cubic meter. Then, the median annual average PM 2.5 concentration was calculated for each region. Southeast had the largest median annual average PM 2.5 concentration with a value of 10.6 micrograms per cubic meter followed by the Midwest with 9.6 micrograms per cubic meter, then Northeast with 9.3 micrograms per cubic meter, Southwest with 8.3 micrograms per cubic meter, and West with 7.0 micrograms per cubic meter. A visualization of a histogram visually displays how the median differs between the regions. It is important to note that several of the regions have outliers especially the West region.
+
+Based on the visualizations and summary statistics, we came to the conclusion that the Southeast had the highest median annual average PM 2.5 concentration while the West had the lowest median annual average PM 2.5 concentration compared to the five main regions within the United States.
