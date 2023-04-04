@@ -171,8 +171,21 @@ boot_df |>
 
 # Results
 
-The data analysis and visualization techniques we used included creating a histogram was created to make meaning of the mean annual average concentration of fine particle concentration calculated to ensure the mean calculated is significant for most data points which is true as the data peaks near the 9.64 mean value calculated. We also created a counties by region graph to understand the statistical significance of the concentration data calculated for each region. Since the number of counties is the greatest for the Southeast and the Midwest region, the results of these two regions resembles have the highest chance of resembling closest to reality making them more statistically significant than the regions Southwest, West and Northeast.  
+The data analysis and visualization techniques we used included creating a histogram was created to make meaning of the mean annual average concentration of fine particle concentration calculated to ensure the mean calculated is significant for most data points which is true as the data peaks near the 9.64 mean value calculated. We also created a counties by region graph to understand the statistical significance of the concentration data calculated for each region. Since the number of counties is the greatest for the Southeast and the Midwest region, the results of these two regions resembles have the highest chance of resembling closest to reality making them more statistically significant than the regions Southwest, West and Northeast.
 
 Our data analysis allowed us to find that overall the median annual average PM 2.5 concentration was 9.64 micrograms per cubic meter. Then, the median annual average PM 2.5 concentration was calculated for each region. Southeast had the largest median annual average PM 2.5 concentration with a value of 10.6 micrograms per cubic meter followed by the Midwest with 9.6 micrograms per cubic meter, then Northeast with 9.3 micrograms per cubic meter, Southwest with 8.3 micrograms per cubic meter, and West with 7.0 micrograms per cubic meter. A visualization of a histogram visually displays how the median differs between the regions. It is important to note that several of the regions have outliers especially the West region.
 
 Based on the visualizations and summary statistics, we came to the conclusion that the Southeast had the highest median annual average PM 2.5 concentration while the West had the lowest median annual average PM 2.5 concentration compared to the five main regions within the United States.
+
+# Bibliography
+
+Centers for Disease Control and Prevention. (2018, June 5). *Air quality measures on the National Environmental Health Tracking Network.* <https://data.cdc.gov/Environmental-Health-Toxicology/Air-Quality-Measures-on-the-National-Environmental/cjae-szjv>
+
+New York State Department of Health. (2018, February). *Fine particles (PM 2.5) questions and answers.* <https://www.health.ny.gov/environmental/indoors/air/pmq_a.htm#:~:text=The%20term%20fine%20particles%2C%20or,microns%20or%20less%20in%20width>.
+
+OpenIntro. (n.d.). *United States counties.* <https://www.openintro.org/data/?data=county_complete>
+
+*United States regions.* (n.d.). National Geographic. Retrieved April 4, 2023, from <https://education.nationalgeographic.org/resource/united-states-regions/>
+
+\
+
