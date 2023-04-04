@@ -59,7 +59,7 @@ concentrations |>
 
 ```
 
-The distribution of annual average PM 2.5 concentrations is right skewed, so there are a few counties with large outliers. In general, concentrations range between about 4 and 22 micrograms per cubic meter.
+The distribution of annual average PM 2.5 concentrations is right skewed, so there are a few counties with large outliers. In general, concentrations range between about 4 and 22 micrograms per cubic meter. The peak occurs at 10 micrograms per cubic meter, and the graph is slightly left-skewed.
 
 ```{r}
 #| label: median-concentration
@@ -139,7 +139,7 @@ The Southeast region has the greatest median concentration of PM 2.5 particles (
 concentrations |>
   ggplot(aes(x = avg_concentration, y = Region)) +
   geom_boxplot(fill = 'steelblue') +
-  labs(x = "Annual Average Concentration of PM 2.5 (micrograms per cubic meter",
+  labs(x = "Annual Average Concentration of PM 2.5 (micrograms per cubic meter)",
        y = "Region",
        title = "County Fine Particle Concentration by Region")
 
@@ -147,7 +147,7 @@ concentrations |>
 
 Looking at the distributions of average PM 2.5 concentration by region, it is evident that there are many counties in the West region with high average PM 2.5 concentrations. In fact, several of the counties with the greatest average PM 2.5 concentrations were from the West region.
 
-``` {r}
+```{r}
 #| label: northeast-interval
 
 set.seed(123)
