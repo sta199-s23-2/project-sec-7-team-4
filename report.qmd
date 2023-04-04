@@ -126,17 +126,24 @@ We compared the median annual concentration of fine particles for counties in ea
 concentrations |>
   group_by(Region) |>
   summarize(median_concen = median(avg_concentration)) |>
-  ggplot(aes(x = Region, y = median_concen)) +
-  geom_col(fill = 'steelblue', color = 'black')
-
-concentrations |>
-  group_by(Region) |>
-  summarize(median_concen = median(avg_concentration)) |>
   arrange(-median_concen)
 
 ```
 
 The Southeast region has the greatest median concentration of PM 2.5 particles (10.6 micrograms per cubic meter), while the West region has the lowest (6.97 micrograms per cubic meter). 
+
+```{r}
+
+concentrations |>
+  ggplot(aes(x = avg_concentration, y = Region)) +
+  geom_boxplot(fill = 'steelblue') +
+  labs(x = "Annual Average Concentration of PM 2.5 (micrograms per cubic meter",
+       y = "Region",
+       title = "Fine Particle Concentration by Region")
+
+```
+
+Looking at the distributions of average PM 2.5 concentration by region, it is evident that there are many counties in the West region with high average PM 2.5 concentrations. 
 
 -   Comparison: We'll compare the results of our air pollution survey with Census population data, population increase, total land area, number of firms, per capita income, metropolitan area (boolean), and population over 65
 
