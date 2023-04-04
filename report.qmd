@@ -60,7 +60,9 @@ concentrations |>
 
 ```
 
-The distribution of annual average PM 2.5 concentrations is right skewed, so there are a few counties with large outliers. In general, concentrations range between about 4 and 22 micrograms per cubic meter. The peak occurs at 10 micrograms per cubic meter, and the graph is slightly left-skewed.
+The distribution of annual average PM 2.5 concentrations is right skewed, so there are a few counties with large outliers. In general, concentrations range between about 4 and 22 micrograms per cubic meter. The peak occurs at 10 micrograms per cubic meter.
+
+For our analysis, we will be using the median annual average PM 2.5 concentration as our summary statistic rather than the mean. Because the distribution is skewed, the median would be more representative of the centre of the data than the mean.
 
 ```{r}
 #| label: median-concentration
