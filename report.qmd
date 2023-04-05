@@ -13,17 +13,68 @@ Our research is motivated by the desire to understand how air pollution differs 
 
 In order to achieve our goal, we will be performing statistical analysis on the annual average ambient concentrations of PM 2.5 in micrograms per cubic meter, based on seasonal averages and daily measurement (monitor and modeled data) in the air pollution data set. PM 2.5 refers to particles in the air that are 2.5 microns (0.001 mm) or less in width. Because particles in the PM 2.5 size range can travel through the respiratory tract and reach the lungs, they can cause short and long term health problems. As such, PM 2.5 concentration is commonly used as a measurement for air quality and air pollution.
 
+In analyzing...
+
 We hypothesize that highly Northeast will have the most air pollution as it is the largest industrial region in the Untied States. The air pollution data set is obtained from the Center for Disease Control (CDC). The data was originally collected by the Environmental Health Tracking Network. This data provides values about air pollution collected from Air Quality Systems (AQS) from 4,000 monitoring stations across the United States. It is also important to note that the data was collected in a completely ethical manner as regulated by CDC guidelines.
 
 # Methodology
 
-To start our analysis, we must load in the neecessary packages and data.
-
 ```{r}
-#| label: load-packages-data
+#| label: load-packages
 
 library(tidyverse)
 library(tidymodels)
+```
+
+Below is the analysis we used to support our hypothesis about the region we believe suffers from the most air pollution. We calculated two statistics---the first being the number of metropolitan areas per region in 2013 (county with a population over 50,000), and the second being the proportion of metropolitan areas to the number of counties.
+
+```{r}
+#| label: metro-stats
+
+counties <- read_csv(file = "data/county_complete.csv")
+
+northeast <- c("Maine", "Vermont", "New Hampshire", "Massachusetts", 
+               "Rhode Island", "Connecticut", "New York", "New Jersey",
+               "Pennsylvania")
+
+southeast <- c("Delaware", "Maryland", "West Virginia", "Virginia", 
+               "North Carolina", "District of Columbia", "Kentucky",
+               "Tennessee", "South Carolina", "Georgia", "Florida", 
+               "Alabama", "Mississippi", "Arkansas", "Louisiana")
+
+midwest <- c("Ohio", "Indiana", "Michigan", "Wisconsin", "Illinois",
+             "Minnesota", "Iowa", "Missouri", "North Dakota", 
+             "South Dakota", "Nebraska", "Kansas")
+
+southwest <- c("Arizona", "New Mexico", "Oklahoma", "Texas")
+
+west <- c("Montana", "Wyoming", "Colorado", "Utah", "Idaho", "Nevada",
+          "Washington", "Oregon", "California", "Hawaii", "Alaska")
+
+counties <- counties |>
+  mutate(Region = case_when(
+    state %in% northeast ~ "Northeast",
+    state %in% southeast ~ "Southeast",
+    state %in% midwest ~ "Midwest",
+    state %in% southwest ~ "Southwest",
+    state %in% west ~ "West"
+    )
+  )
+
+counties |>
+  filter(metro_2013 == 1) |>
+  count(Region)
+
+counties |>
+  group_by(Region) |>
+  filter(!is.na(metro_2013)) |>
+  summarize(p = sum(metro_2013) / n())
+```
+
+To start our analysis, we must load in the necessary data.
+
+```{r}
+#| label: load-data
 
 air_quality <- read_csv(file = "data/Air_Quality_Measures_on_the_National_Environmental_Health_Tracking_Network (1).csv")
 
@@ -78,24 +129,6 @@ We are exploring how air quality differs by geographic region as defined by the 
 
 ```{r}
 #| label: state-regions
-
-northeast <- c("Maine", "Vermont", "New Hampshire", "Massachusetts", 
-               "Rhode Island", "Connecticut", "New York", "New Jersey",
-               "Pennsylvania")
-
-southeast <- c("Delaware", "Maryland", "West Virginia", "Virginia", 
-               "North Carolina", "District of Columbia", "Kentucky",
-               "Tennessee", "South Carolina", "Georgia", "Florida", 
-               "Alabama", "Mississippi", "Arkansas", "Louisiana")
-
-midwest <- c("Ohio", "Indiana", "Michigan", "Wisconsin", "Illinois",
-             "Minnesota", "Iowa", "Missouri", "North Dakota", 
-             "South Dakota", "Nebraska", "Kansas")
-
-southwest <- c("Arizona", "New Mexico", "Oklahoma", "Texas")
-
-west <- c("Montana", "Wyoming", "Colorado", "Utah", "Idaho", "Nevada",
-          "Washington", "Oregon", "California", "Hawaii", "Alaska")
 
 concentrations <- concentrations |>
   mutate(Region = case_when(
@@ -190,4 +223,3 @@ OpenIntro. (n.d.). *United States counties.* <https://www.openintro.org/data/?da
 *United States regions.* (n.d.). National Geographic. Retrieved April 4, 2023, from <https://education.nationalgeographic.org/resource/united-states-regions/>
 
 \
-
