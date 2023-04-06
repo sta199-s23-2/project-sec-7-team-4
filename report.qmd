@@ -72,7 +72,7 @@ counties |>
   summarize(p = sum(metro_2013) / n())
 ```
 
-Additionally, to support our hypothesis, we found the average number of firms per region in 2007 and found that the Northeast had the most average firms per county at 23,962, followed by the West, the Southwest, the Southeast, and the Midwest. 
+Additionally, to support our hypothesis, we found the median number of county firms per region in 2007 and found that the Northeast had the greatest median firms per county at 8,748, followed by the West, the Southeast, the Southwest, and the Midwest. 
 
 ```{r}
 #| label: firms-statistic
@@ -80,7 +80,8 @@ Additionally, to support our hypothesis, we found the average number of firms pe
 counties |>
   filter(!is.na(firms_2007)) |>
   group_by(Region) |>
-  summarize(avg_firms = mean(firms_2007))
+  summarize(avg_firms = median(firms_2007)) |>
+  arrange(-avg_firms)
 
 ```
 
@@ -218,6 +219,49 @@ boot_df |>
 ```
 
 Based on the results above, we are 95% confident that the true median average PM 2.5 concentration in Northeast counties from 2008-2011 is between 9.16 and 9.45 micrograms per cubic meter. 
+
+Our hypothesis is that the Northeast region would have the worst air quality. To test this, we ran a hypothesis test to compare to difference in median PM 2.5 concentration per county among Northeast counties and all other counties. Our null hypothesis is that the true median PM 2.5 concentration for Northeast counties from 2008-2011 is the same as the true median PM 2.5 concentration for all other counties. Our alternative hypothesis is that the true median PM 2.5 concentration for Northeast counties from 2008-2011 is greater than the true median PM 2.5 concentration for all other counties. 
+
+$H_o: \mu_n - \mu_a$ = 0
+
+$H_a: \mu_n - \mu_a$ \> 0
+
+$\mu_n$: true median PM 2.5 concentration for Northeast counties from 2008-2011 
+
+$\mu_a$: true median PM 2.5 concentration for all other (non-Northeast) counties from 2008-2011
+
+```{r}
+#| label: hypoth-test
+
+set.seed(123)
+
+concentrations <- concentrations |>
+  mutate(is_northeast = if_else(Region == "Northeast",
+                                "Northeast",
+                                "Other"))
+
+concentrations |>
+  group_by(is_northeast) |>
+  summarize(median_concen = median(avg_concentration))
+
+null_dist <- concentrations |>
+  specify(response = avg_concentration,
+          explanatory = is_northeast) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 5000, type = "permute") |>
+  calculate(stat = "diff in medians", order = c("Northeast", "Other"))
+
+null_dist |>
+  ggplot(aes(x = stat)) +
+  geom_histogram()
+
+null_dist |>
+  get_p_value(obs_stat = -0.51, direction = "greater")
+  
+
+```
+
+We got a p-value of 1, meaning we fail to reject our null hypothesis. The incredibly high p-value signifies a surprising trend: the Northeast counties actually have a lower median PM 2.5 concentration than other U.S. counties from 2008-2011, which is unexpected since the Northeast tends to have more firms and a high proportion metropolitan areas. 
 
 # Results
 
