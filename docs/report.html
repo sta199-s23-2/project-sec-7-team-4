@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project title</title>
+<title>U.S. Air Quality by Region</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -179,7 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project title</h1>
+<h1 class="title">U.S. Air Quality by Region</h1>
 <p class="subtitle lead">Report</p>
 </div>
 
@@ -198,7 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Introduction and Data</h1>
 <p>Our research is motivated by the desire to understand how air pollution differs between the various regions in the United States. We will be investigating the research question of how do air pollution levels differ between states from the West, Southwest, Midwest, Southeast, and Northeast as defined by the National Geographic Society of the mainland United States from the years 2008-2011?</p>
 <p>In order to achieve our goal, we will be performing statistical analysis on the annual average ambient concentrations of PM 2.5 in micrograms per cubic meter, based on seasonal averages and daily measurement (monitor and modeled data) in the air pollution data set. PM 2.5 refers to particles in the air that are 2.5 microns (0.001 mm) or less in width. Because particles in the PM 2.5 size range can travel through the respiratory tract and reach the lungs, they can cause short and long term health problems. As such, PM 2.5 concentration is commonly used as a measurement for air quality and air pollution.</p>
-<p>In analyzing a separate dataset about counties, we formed our hypotheses based on statistics such as the number of metropolitan areas per region and the number of firms per region. This county data was prepared by the USDA, Economic Research Service, and provides over 100 statistics about counties across the US from the year 2000 onwards. These calculations are presented in the beginning of our methodology, in which we found that compared to other regions, the Northeast had the highest percentage of counties marked as metropolitan in 2013 at 4about 60% and the most average firms per county in 2007 at 23,962. Due to these reasons, we hypothesize that the Northeast will have the most air pollution.</p>
+<p>In analyzing a separate dataset about counties, we formed our hypotheses based on statistics such as the number of metropolitan areas per region and the number of firms per region. This county data was prepared by the USDA, Economic Research Service, and provides over 100 statistics about counties across the US from the year 2000 onwards. These calculations are presented in the beginning of our methodology, in which we found that compared to other regions, the Northeast had the highest percentage of counties marked as metropolitan in 2013 at about 60% and the greatest median firms per county in 2007 at 23,962. Due to these reasons, we hypothesize that the Northeast will have the most air pollution.</p>
 <p>The air pollution data set is obtained from the Center for Disease Control (CDC). The data was originally collected by the Environmental Health Tracking Network. This data provides values about air pollution collected from Air Quality Systems (AQS) from 4,000 monitoring stations across the United States. It is also important to note that the data was collected in a completely ethical manner as regulated by CDC guidelines.</p>
 </section>
 <section id="methodology" class="level1">
@@ -231,7 +231,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ✖ dplyr::lag()      masks stats::lag()
 ✖ yardstick::spec() masks readr::spec()
 ✖ recipes::step()   masks stats::step()
-• Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
+• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
 </div>
 </div>
 <p>Below is the analysis we used to support our hypothesis about the region we believe suffers from the most air pollution. We calculated the proportion of metropolitan areas to the number of counties per region in 2013 (a metropolitan county is a county with a population over 50,000). We found that the Northeast had the highest proportion of counties identified as metropolitan at ~60%.</p>
@@ -291,16 +291,17 @@ dbl (184): fips, pop2000, pop2010, pop2011, pop2012, pop2013, pop2014, pop20...
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>counties <span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Region) <span class="sc">|&gt;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(metro_2013)) <span class="sc">|&gt;</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">sum</span>(metro_2013) <span class="sc">/</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">sum</span>(metro_2013) <span class="sc">/</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   Region        p
   &lt;chr&gt;     &lt;dbl&gt;
-1 Midwest   0.287
-2 Northeast 0.599
-3 Southeast 0.451
+1 Northeast 0.599
+2 Southeast 0.451
+3 West      0.317
 4 Southwest 0.303
-5 West      0.317</code></pre>
+5 Midwest   0.287</code></pre>
 </div>
 </div>
 <p>Additionally, to support our hypothesis, we found the median number of county firms per region in 2007 and found that the Northeast had the greatest median firms per county at 8,748, followed by the West, the Southeast, the Southwest, and the Midwest.</p>
@@ -308,11 +309,11 @@ dbl (184): fips, pop2000, pop2010, pop2011, pop2012, pop2013, pop2014, pop20...
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>counties <span class="sc">|&gt;</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(firms_2007)) <span class="sc">|&gt;</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Region) <span class="sc">|&gt;</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_firms =</span> <span class="fu">median</span>(firms_2007)) <span class="sc">|&gt;</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>avg_firms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">med_firms =</span> <span class="fu">median</span>(firms_2007)) <span class="sc">|&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>med_firms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
-  Region    avg_firms
+  Region    med_firms
   &lt;chr&gt;         &lt;dbl&gt;
 1 Northeast      8748
 2 West           2294
@@ -336,7 +337,7 @@ num (1): Value
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-<p>The <code>air_quality</code> dataset contains several statistics on fine particle concentrations and ozone concentrations on the county level in the United States from 2001 to 2011. Our analysis will focus on the annual average ambient concentrations of PM 2.5 based on seasonal averages and daily measurement, and we will be looking at the data from 2008 to 2011.</p>
+<p>The <code>air_quality</code> dataset contains several statistics on fine particle concentrations and ozone concentrations on the county level in the United States from 2001 to 2011. Our analysis will focus on the annual average ambient concentrations of PM 2.5 based on seasonal averages and daily measurement, and we will be looking at the data from 2008 to 2011. We chose these years because we wanted to get an idea of the most recent air quality measures from the data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>concentrations <span class="ot">&lt;-</span> air_quality <span class="sc">|&gt;</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(MeasureName <span class="sc">==</span> <span class="st">"Annual average ambient concentrations of PM 2.5 in micrograms per cubic meter, based on seasonal averages and daily measurement (monitor and modeled data)"</span>,</span>
@@ -364,15 +365,15 @@ num (1): Value
 <p>For our analysis, we will be using the median annual average PM 2.5 concentration as our summary statistic rather than the mean. Because the distribution is skewed, the median would be more representative of the centre of the data than the mean.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>concentrations <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_avg_concentration =</span> <span class="fu">mean</span>(avg_concentration))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">med_concentration =</span> <span class="fu">median</span>(avg_concentration))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
-  mean_avg_concentration
-                   &lt;dbl&gt;
-1                   9.64</code></pre>
+  med_concentration
+              &lt;dbl&gt;
+1              9.78</code></pre>
 </div>
 </div>
-<p>The median annual average PM 2.5 concentration is 9.64 micrograms per cubic meter. This is the typical value for a county in the United States from 2008-2011.</p>
+<p>The median annual average PM 2.5 concentration is 9.78 micrograms per cubic meter. This is the typical value for a county in the United States from 2008-2011.</p>
 <p>We are exploring how air quality differs by geographic region as defined by the National Geographic Society. The regions include the Northeast, Southeast, Midwest, Southwest, and West.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>concentrations <span class="ot">&lt;-</span> concentrations <span class="sc">|&gt;</span></span>
@@ -402,17 +403,17 @@ num (1): Value
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>concentrations <span class="sc">|&gt;</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Region) <span class="sc">|&gt;</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">median_concen =</span> <span class="fu">median</span>(avg_concentration)) <span class="sc">|&gt;</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>median_concen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">med_concentration =</span> <span class="fu">median</span>(avg_concentration)) <span class="sc">|&gt;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>med_concentration)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
-  Region    median_concen
-  &lt;chr&gt;             &lt;dbl&gt;
-1 Southeast         10.6 
-2 Midwest            9.80
-3 Northeast          9.31
-4 Southwest          8.32
-5 West               6.97</code></pre>
+  Region    med_concentration
+  &lt;chr&gt;                 &lt;dbl&gt;
+1 Southeast             10.6 
+2 Midwest                9.80
+3 Northeast              9.31
+4 Southwest              8.32
+5 West                   6.97</code></pre>
 </div>
 </div>
 <p>The Southeast region has the greatest median concentration of PM 2.5 particles (10.6 micrograms per cubic meter), while the West region has the lowest (6.97 micrograms per cubic meter).</p>
@@ -425,7 +426,7 @@ num (1): Value
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"data from 'Air Quality Measures on the National Environmental Health </span><span class="sc">\n</span><span class="st"> Tracking Network' collected by the Environmental Protection Agency (EPA)"</span>,</span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"County Fine Particle Concentration by Region"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="report_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="report_files/figure-html/boxplot-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Looking at the distributions of average PM 2.5 concentration by region, it is evident that there are many counties in the West region with high average PM 2.5 concentrations. In fact, several of the counties with the greatest average PM 2.5 concentrations were from the West region.</p>
@@ -436,30 +437,36 @@ num (1): Value
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>boot_df <span class="ot">&lt;-</span> concentrations <span class="sc">|&gt;</span></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">"Northeast"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> avg_concentration) <span class="sc">|&gt;</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">5000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"median"</span>)</span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>boot_df <span class="sc">|&gt;</span></span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">lower =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.025</span>),</span>
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">upper =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  lower upper
+  &lt;dbl&gt; &lt;dbl&gt;
+1  9.17  9.45</code></pre>
 </div>
-<p>Based on the results above, we are 95% confident that the true median average PM 2.5 concentration in Northeast counties from 2008-2011 is between 9.16 and 9.45 micrograms per cubic meter.</p>
-<p>Our hypothesis is that the Northeast region would have the worst air quality. To test this, we ran a hypothesis test to compare to difference in median PM 2.5 concentration per county among Northeast counties and all other counties. Our null hypothesis is that the true median PM 2.5 concentration for Northeast counties from 2008-2011 is the same as the true median PM 2.5 concentration for all other counties. Our alternative hypothesis is that the true median PM 2.5 concentration for Northeast counties from 2008-2011 is greater than the true median PM 2.5 concentration for all other counties.</p>
+</div>
+<p>Based on the results above, we are 95% confident that the true median average PM 2.5 concentration in Northeast counties from 2008-2011 is between 9.17 and 9.45 micrograms per cubic meter.</p>
+<p>Our hypothesis is that the Northeast region would have the worst air quality. To test this, we ran a hypothesis test to compare to difference in median PM 2.5 concentration per county among Northeast counties and all other counties. Our null hypothesis is that the true median PM 2.5 concentration for Northeast counties from 2008-2011 is the same as the true median PM 2.5 concentration for all other counties. Our alternative hypothesis is that the true median PM 2.5 concentration for Northeast counties from 2008-2011 is greater than the true median PM 2.5 concentration for all other counties. We set our significance level <span class="math inline">\(\alpha\)</span> at 0.05.</p>
 <p><span class="math inline">\(H_o: \mu_n - \mu_a\)</span> = 0</p>
 <p><span class="math inline">\(H_a: \mu_n - \mu_a\)</span> &gt; 0</p>
 <p><span class="math inline">\(\mu_n\)</span>: true median PM 2.5 concentration for Northeast counties from 2008-2011</p>
 <p><span class="math inline">\(\mu_a\)</span>: true median PM 2.5 concentration for all other (non-Northeast) counties from 2008-2011</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>concentrations <span class="ot">&lt;-</span> concentrations <span class="sc">|&gt;</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_northeast =</span> <span class="fu">if_else</span>(Region <span class="sc">==</span> <span class="st">"Northeast"</span>,</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Northeast"</span>,</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Other"</span>))</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>concentrations <span class="sc">|&gt;</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(is_northeast) <span class="sc">|&gt;</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">median_concen =</span> <span class="fu">median</span>(avg_concentration))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>concentrations <span class="ot">&lt;-</span> concentrations <span class="sc">|&gt;</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_northeast =</span> <span class="fu">if_else</span>(Region <span class="sc">==</span> <span class="st">"Northeast"</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Northeast"</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"Other"</span>))</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>concentrations <span class="sc">|&gt;</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(is_northeast) <span class="sc">|&gt;</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">median_concen =</span> <span class="fu">median</span>(avg_concentration))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   is_northeast median_concen
@@ -467,24 +474,31 @@ num (1): Value
 1 Northeast             9.31
 2 Other                 9.82</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> concentrations <span class="sc">|&gt;</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> avg_concentration,</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">explanatory =</span> is_northeast) <span class="sc">|&gt;</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">5000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in medians"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"Northeast"</span>, <span class="st">"Other"</span>))</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>point_est <span class="ot">=</span> <span class="sc">-</span><span class="fl">0.51</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> concentrations <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(<span class="at">response =</span> avg_concentration,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">explanatory =</span> is_northeast) <span class="sc">|&gt;</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in medians"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"Northeast"</span>, <span class="st">"Other"</span>))</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">'steelblue'</span>, <span class="at">color =</span> <span class="st">'black'</span>) <span class="sc">+</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> point_est) <span class="sc">+</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sample Difference in Median PM 2.5 concentration"</span>,</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count"</span>,</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Null Distribution"</span>,</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Difference between Northeast region and other regions"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="report_files/figure-html/hypoth-test-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> <span class="sc">-</span><span class="fl">0.51</span>, <span class="at">direction =</span> <span class="st">"greater"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> point_est, <span class="at">direction =</span> <span class="st">"greater"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   p_value
@@ -492,13 +506,13 @@ num (1): Value
 1       1</code></pre>
 </div>
 </div>
-<p>We got a p-value of 1, meaning we fail to reject our null hypothesis. The incredibly high p-value signifies a surprising trend: the Northeast counties actually have a lower median PM 2.5 concentration than other U.S. counties from 2008-2011, which is unexpected since the Northeast tends to have more firms and a high proportion metropolitan areas.</p>
+<p>Even though the point estimate is far away from the null distribution, we hypothesized the Northeast counties would have a higher median concentration of PM 2.5 particles, so the point estimate is far off in the wrong direction! Therefore, we got a p-value greater than 0.999, meaning we fail to reject our null hypothesis. The incredibly high p-value signifies a surprising trend: the Northeast counties actually have a lower median PM 2.5 concentration than other U.S. counties from 2008-2011, which is unexpected since the Northeast tends to have more firms and a high proportion metropolitan areas.</p>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
-<p>The data analysis and visualization techniques we used included creating a histogram was created to make meaning of the mean annual average concentration of fine particle concentration calculated to ensure the mean calculated is significant for most data points which is true as the data peaks near the 9.64 mean value calculated. We also created a counties by region graph to understand the statistical significance of the concentration data calculated for each region. Since the number of counties is the greatest for the Southeast and the Midwest region, the results of these two regions resembles have the highest chance of resembling closest to reality making them more statistically significant than the regions Southwest, West and Northeast.</p>
-<p>Our data analysis allowed us to find that overall the median annual average PM 2.5 concentration was 9.64 micrograms per cubic meter. Then, the median annual average PM 2.5 concentration was calculated for each region. Southeast had the largest median annual average PM 2.5 concentration with a value of 10.6 micrograms per cubic meter followed by the Midwest with 9.6 micrograms per cubic meter, then Northeast with 9.3 micrograms per cubic meter, Southwest with 8.3 micrograms per cubic meter, and West with 7.0 micrograms per cubic meter. A visualization of a histogram visually displays how the median differs between the regions. It is important to note that several of the regions have outliers especially the West region.</p>
-<p>Based on the visualizations and summary statistics, we came to the conclusion that the Southeast had the highest median annual average PM 2.5 concentration while the West had the lowest median annual average PM 2.5 concentration compared to the five main regions within the United States.</p>
+<p>We used the data analysis and visualization techniques to make meaning of the median annual average concentration of fine particle concentration. We created a counties by region graph to understand the statistical significance of the concentration data calculated for each region. Since the number of counties is the greatest for the Southeast and the Midwest region, the results of these two regions resembles have the highest chance of resembling closest to reality making them more statistically significant than the regions Southwest, West and Northeast.</p>
+<p>Our data analysis allowed us to find that overall the median annual average PM 2.5 concentration was 9.78 micrograms per cubic meter for all U.S. counties from 2008-2011. Then, the median annual average PM 2.5 concentration was calculated for each region. Southeast had the largest median annual average PM 2.5 concentration with a value of 10.6 micrograms per cubic meter followed by the Midwest with 9.6 micrograms per cubic meter, then Northeast with 9.3 micrograms per cubic meter, Southwest with 8.3 micrograms per cubic meter, and West with 7.0 micrograms per cubic meter. It is important to note that several of the regions have outliers especially the West region.</p>
+<p>Based on the visualizations and summary statistics, we came to the conclusion that the Southeast had the highest median annual average PM 2.5 concentration while the West had the lowest median annual average PM 2.5 concentration compared to the five main regions within the United States. In addition, we were surprised to find that the Northeast region, the region with the most highest proportion of metropolitan areas and the most business activity, actually had a lower median PM 2.5 concentration than all other counties. Although we expected the Northeast to have the worst air quality, it turns out it has a lower typical fine particle concentration than other regions.</p>
 </section>
 <section id="bibliography" class="level1">
 <h1>Bibliography</h1>
