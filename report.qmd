@@ -257,9 +257,10 @@ null_dist |>
   ggplot(aes(x = stat)) +
   geom_histogram(fill = 'steelblue', color = 'black') +
   geom_vline(xintercept = point_est) +
-  labs(x = "Sample Difference in Medians",
+  labs(x = "Sample Difference in Median PM 2.5 concentration",
        y = "Count",
-       title = "Null Distribution")
+       title = "Null Distribution",
+       subtitle = "Difference between Northeast region and other regions")
 
 null_dist |>
   get_p_value(obs_stat = point_est, direction = "greater")
