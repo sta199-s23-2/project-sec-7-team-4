@@ -17,6 +17,10 @@ In analyzing a separate dataset about counties, we formed our hypotheses based o
 
 The air pollution data set is obtained from the Center for Disease Control (CDC). The data was originally collected by the Environmental Health Tracking Network. This data provides values about air pollution collected from Air Quality Systems (AQS) from 4,000 monitoring stations across the United States. It is also important to note that the data was collected in a completely ethical manner as regulated by CDC guidelines.
 
+# Literature Review
+
+The article "Air Pollution Index Systems in the United States and Canada" explored and analyzed data similar to the data that will be analyzed in this report. This study surveyed all available air pollution indices through literature review and conversations with air pollution control agencies in the US and found that 35 out of 55 metropolitan air pollution control agencies used some form of daily air pollution index. The study developed a system to classify the indices into 14 different types based on four criteria. It was found that no two indices were exactly the same. The survey results and agency comments were used to identify characteristics and criteria for a uniform air pollution index. This report will differ from this study because this report will not analyze different indexes but rather use data from Air Quality Monitoring Stations across the United States to explore how air pollution potentially differs across regions in the United States.
+
 # Methodology
 
 ```{r}
@@ -282,6 +286,8 @@ Based on the visualizations and summary statistics, we came to the conclusion th
 # Bibliography
 
 Centers for Disease Control and Prevention. (2018, June 5). *Air quality measures on the National Environmental Health Tracking Network.* <https://data.cdc.gov/Environmental-Health-Toxicology/Air-Quality-Measures-on-the-National-Environmental/cjae-szjv>
+
+Journal of the Air Pollution Control Association. (2012, March 13). *Air Pollution Index Systems in the United States and Canada.* <https://doi.org/10.1080/00022470.1976.10470272>
 
 New York State Department of Health. (2018, February). *Fine particles (PM 2.5) questions and answers.* <https://www.health.ny.gov/environmental/indoors/air/pmq_a.htm#:~:text=The%20term%20fine%20particles%2C%20or,microns%20or%20less%20in%20width>.
 

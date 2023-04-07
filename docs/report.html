@@ -168,6 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#introduction-and-data" id="toc-introduction-and-data" class="nav-link active" data-scroll-target="#introduction-and-data">Introduction and Data</a></li>
+  <li><a href="#literature-review" id="toc-literature-review" class="nav-link" data-scroll-target="#literature-review">Literature Review</a></li>
   <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Bibliography</a></li>
@@ -201,6 +202,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In analyzing a separate dataset about counties, we formed our hypotheses based on statistics such as the number of metropolitan areas per region and the number of firms per region. This county data was prepared by the USDA, Economic Research Service, and provides over 100 statistics about counties across the US from the year 2000 onwards. These calculations are presented in the beginning of our methodology, in which we found that compared to other regions, the Northeast had the highest percentage of counties marked as metropolitan in 2013 at about 60% and the greatest median firms per county in 2007 at 23,962. Due to these reasons, we hypothesize that the Northeast will have the most air pollution.</p>
 <p>The air pollution data set is obtained from the Center for Disease Control (CDC). The data was originally collected by the Environmental Health Tracking Network. This data provides values about air pollution collected from Air Quality Systems (AQS) from 4,000 monitoring stations across the United States. It is also important to note that the data was collected in a completely ethical manner as regulated by CDC guidelines.</p>
 </section>
+<section id="literature-review" class="level1">
+<h1>Literature Review</h1>
+<p>The article “Air Pollution Index Systems in the United States and Canada” explored and analyzed data similar to the data that will be analyzed in this report. This study surveyed all available air pollution indices through literature review and conversations with air pollution control agencies in the US and found that 35 out of 55 metropolitan air pollution control agencies used some form of daily air pollution index. The study developed a system to classify the indices into 14 different types based on four criteria. It was found that no two indices were exactly the same. The survey results and agency comments were used to identify characteristics and criteria for a uniform air pollution index. This report will differ from this study because this report will not analyze different indexes but rather use data from Air Quality Monitoring Stations across the United States to explore how air pollution potentially differs across regions in the United States.</p>
+</section>
 <section id="methodology" class="level1">
 <h1>Methodology</h1>
 <div class="cell">
@@ -231,7 +236,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ✖ dplyr::lag()      masks stats::lag()
 ✖ yardstick::spec() masks readr::spec()
 ✖ recipes::step()   masks stats::step()
-• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
+• Use suppressPackageStartupMessages() to eliminate package startup messages</code></pre>
 </div>
 </div>
 <p>Below is the analysis we used to support our hypothesis about the region we believe suffers from the most air pollution. We calculated the proportion of metropolitan areas to the number of counties per region in 2013 (a metropolitan county is a county with a population over 50,000). We found that the Northeast had the highest proportion of counties identified as metropolitan at ~60%.</p>
@@ -517,6 +522,7 @@ num (1): Value
 <section id="bibliography" class="level1">
 <h1>Bibliography</h1>
 <p>Centers for Disease Control and Prevention. (2018, June 5). <em>Air quality measures on the National Environmental Health Tracking Network.</em> <a href="https://data.cdc.gov/Environmental-Health-Toxicology/Air-Quality-Measures-on-the-National-Environmental/cjae-szjv" class="uri">https://data.cdc.gov/Environmental-Health-Toxicology/Air-Quality-Measures-on-the-National-Environmental/cjae-szjv</a></p>
+<p>Journal of the Air Pollution Control Association. (2012, March 13). <em>Air Pollution Index Systems in the United States and Canada.</em> <a href="https://doi.org/10.1080/00022470.1976.10470272" class="uri">https://doi.org/10.1080/00022470.1976.10470272</a></p>
 <p>New York State Department of Health. (2018, February). <em>Fine particles (PM 2.5) questions and answers.</em> <a href="https://www.health.ny.gov/environmental/indoors/air/pmq_a.htm#:~:text=The%20term%20fine%20particles%2C%20or,microns%20or%20less%20in%20width" class="uri">https://www.health.ny.gov/environmental/indoors/air/pmq_a.htm#:~:text=The%20term%20fine%20particles%2C%20or,microns%20or%20less%20in%20width</a>.</p>
 <p>OpenIntro. (n.d.). <em>United States counties.</em> <a href="https://www.openintro.org/data/?data=county_complete" class="uri">https://www.openintro.org/data/?data=county_complete</a></p>
 <p><em>United States regions.</em> (n.d.). National Geographic. Retrieved April 4, 2023, from <a href="https://education.nationalgeographic.org/resource/united-states-regions/" class="uri">https://education.nationalgeographic.org/resource/united-states-regions/</a></p>
