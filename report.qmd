@@ -29,14 +29,15 @@ The article "Air Pollution Index Systems in the United States and Canada" explor
 library(tidyverse)
 library(tidymodels)
 
+counties <- read_csv(file = "data/county_complete.csv")
+air_quality <- read_csv(file = "data/Air_Quality_Measures_on_the_National_Environmental_Health_Tracking_Network (1).csv")
+
 ```
 
-Below is the analysis we used to support our hypothesis about the region we believe suffers from the most air pollution. We calculated the proportion of metropolitan areas to the number of counties per region in 2013 (a metropolitan county is a county with a population over 50,000). We found that the Northeast had the highest proportion of counties identified as metropolitan at \~60%.
+First, we explored which regions have the greatest proportion of metropolitan areas. We found that the Northeast leads all regions in this statistic, as about 60% of their counties were marked as metropolitan in 2013. The Southeast had the second greatest proportion at about 45%. The other three regions (Midwest, Southwest, and West) had about 30% of their counties marked as metropolitan areas. 
 
 ```{r}
 #| label: metro-stats
-
-counties <- read_csv(file = "data/county_complete.csv")
 
 northeast <- c("Maine", "Vermont", "New Hampshire", "Massachusetts", 
                "Rhode Island", "Connecticut", "New York", "New Jersey",
@@ -67,37 +68,38 @@ counties <- counties |>
   )
 
 counties |>
-  filter(metro_2013 == 1) |>
-  count(Region)
-
-counties |>
-  group_by(Region) |>
   filter(!is.na(metro_2013)) |>
-  summarize(p = sum(metro_2013) / n()) |>
-  arrange(-p)
+  mutate(metro = if_else(metro_2013 == 1, "Metro", "Not Metro"),
+         metro = factor(metro, levels = c("Not Metro", "Metro"))) |>
+  ggplot(aes(x = Region, fill = metro)) +
+  geom_bar(position = "fill", color = 'black') +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = c("orange", "steelblue")) +
+  labs(y = "Proportion",
+       title = "The Northeast has Many Metro Counties",
+       caption = "Data from USDA Economic Research Service",
+       fill = "Metropolitan Area")
+
 ```
 
-Additionally, to support our hypothesis, we found the median number of county firms per region in 2007 and found that the Northeast had the greatest median firms per county at 8,748, followed by the West, the Southeast, the Southwest, and the Midwest.
+Additionally, we found the median county population per region in 2011 and found that the Northeast had the greatest median population at about 100,000. All four other regions had a median population between 20,000 and 30,000. 
 
 ```{r}
-#| label: firms-statistic
+#| label: pop-statistic
 
 counties |>
-  filter(!is.na(firms_2007)) |>
+  filter(!is.na(pop2011)) |>
   group_by(Region) |>
-  summarize(med_firms = median(firms_2007)) |>
-  arrange(-med_firms)
+  summarize(median_pop = median(pop2011)) |>
+  ggplot(aes(x = Region, y = median_pop)) +
+  geom_col(fill = 'steelblue', color = 'black') +
+  labs(y = "Median Population in 2011",
+       title = "The Northeast has the Most Populated Counties",
+       caption = "Data from USDA Economic Research Service")
 
 ```
 
-Now, to start our air pollution analysis, we must load in the necessary data.
-
-```{r}
-#| label: load-data
-
-air_quality <- read_csv(file = "data/Air_Quality_Measures_on_the_National_Environmental_Health_Tracking_Network (1).csv")
-
-```
+Now, we can look at the air pollution data. 
 
 The `air_quality` dataset contains several statistics on fine particle concentrations and ozone concentrations on the county level in the United States from 2001 to 2011. Our analysis will focus on the annual average ambient concentrations of PM 2.5 based on seasonal averages and daily measurement, and we will be looking at the data from 2008 to 2011. We chose these years because we wanted to get an idea of the most recent air quality measures from the data.
 
@@ -144,8 +146,6 @@ concentrations |>
 
 The median annual average PM 2.5 concentration is 9.78 micrograms per cubic meter. This is the typical value for a county in the United States from 2008-2011.
 
-We are exploring how air quality differs by geographic region as defined by the National Geographic Society. The regions include the Northeast, Southeast, Midwest, Southwest, and West.
-
 ```{r}
 #| label: state-regions
 
@@ -158,21 +158,6 @@ concentrations <- concentrations |>
     StateName %in% west ~ "West"
     )
   )
-
-```
-
-Using this division of regions, the Southeast and Midwest regions have the most counties, while the Northeast region has the least. However, all regions have at least 800 counties.
-
-```{r}
-#| label: num-counties
-
-concentrations |>
-  ggplot(aes(x = fct_infreq(Region))) +
-  geom_bar(fill = 'steelblue', color = 'black') +
-  labs(x = "Region",
-       y = "Number of Counties in Dataset",
-       caption = "data from 'Air Quality Measures on the National Environmental Health \n Tracking Network' collected by the Environmental Protection Agency (EPA)",
-       title = "Counties by Region")
 
 ```
 
