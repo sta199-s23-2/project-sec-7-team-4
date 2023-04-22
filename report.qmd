@@ -177,6 +177,8 @@ concen2 |>
 
 ```
 
+There is a clear positive relationship between population and average concentration of PM 2.5 particles, indicating that counties with more people tend to have worse air pollution, on average. In addition, we looked at how PM 2.5 concentration differs between metropolitan areas and non-metropolitan areas. 
+
 ```{r}
 #| label: violin
 
@@ -191,6 +193,7 @@ concen2 |>
 
 ```
 
+It looks like metropolitan areas do tend to have a greater average annual concentration of PM 2.5 particles. As we found before, the Northeast has the greatest proportion of metropolitan counties and the greatest median county population. Because greater populations and metropolitan areas are associated with more air pollution, we expect the Northeast to have a greater median concentration than all other regions. 
 
 ```{r}
 #| label: state-regions
@@ -258,13 +261,13 @@ Based on the results above, we are 95% confident that the true median average PM
 
 Our hypothesis is that the Northeast region would have the worst air quality. To test this, we ran a hypothesis test to compare to difference in median PM 2.5 concentration per county among Northeast counties and all other counties. Our null hypothesis is that the true median PM 2.5 concentration for Northeast counties from 2008-2011 is the same as the true median PM 2.5 concentration for all other counties. Our alternative hypothesis is that the true median PM 2.5 concentration for Northeast counties from 2008-2011 is greater than the true median PM 2.5 concentration for all other counties. We set our significance level $\alpha$ at 0.05.
 
-$H_o: \mu_n - \mu_a$ = 0
+$H_o: \mu_{ne} - \mu_{other}$ = 0
 
-$H_a: \mu_n - \mu_a$ \> 0
+$H_a: \mu_{ne} - \mu_{other}$ \> 0
 
-$\mu_n$: true median PM 2.5 concentration for Northeast counties from 2008-2011
+$\mu_{ne}$: true median PM 2.5 concentration for Northeast counties from 2008-2011
 
-$\mu_a$: true median PM 2.5 concentration for all other (non-Northeast) counties from 2008-2011
+$\mu_{other}$: true median PM 2.5 concentration for all other (non-Northeast) counties from 2008-2011
 
 ```{r}
 #| label: hypoth-test
