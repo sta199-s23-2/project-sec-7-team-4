@@ -146,6 +146,52 @@ concentrations |>
 
 The median annual average PM 2.5 concentration is 9.78 micrograms per cubic meter. This is the typical value for a county in the United States from 2008-2011.
 
+Next, we looked at how fine particle concentration was related to population. 
+
+```{r}
+#| label: join
+
+counties2 <- counties |>
+  select(state, name, pop2011, metro_2013, firms_2007) |>
+  mutate(name = str_remove(name, " County"))
+
+concen2 <- concentrations |>
+  filter(ReportYear == 2011) |>
+  inner_join(counties2, by = c("StateName" = "state",
+                               "CountyName" = "name"))
+
+```
+
+```{r}
+#| label: scatter
+
+concen2 |>
+  ggplot(aes(x = pop2011, y = avg_concentration)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = 'lm', se = F) +
+  scale_x_log10() +
+  labs(x = "Population in 2011 (log-scale)",
+       y = "Annual Average Concentration of PM 2.5 \n(micrograms per cubic meter)",
+       title = "Population and Air Pollution are Related",
+       caption = "Data from USDA Economic Research Survey and Environmental Protection Agency")
+
+```
+
+```{r}
+#| label: violin
+
+concen2 |>
+  mutate(metro = if_else(metro_2013 == 1, "Metro", "Not Metro")) |>
+  ggplot(aes(x = metro, y = avg_concentration)) +
+  geom_violin(fill = 'steelblue') +
+  labs(x = "Metropolitan Area",
+       y = "Annual Average Concentration of PM 2.5 \n(micrograms per cubic meter)",
+       title = "Metropolitan Areas have More Air Pollution",
+       caption = "Data from USDA Economic Research Survey and Environmental Protection Agency")
+
+```
+
+
 ```{r}
 #| label: state-regions
 
