@@ -190,7 +190,7 @@ concentrations |>
 
 Looking at the distributions of average PM 2.5 concentration by region, it is evident that there are many counties in the West region with high average PM 2.5 concentrations. In fact, several of the counties with the greatest average PM 2.5 concentrations were from the West region.
 
-We hypothesized that the Northeast would have the worst air quality among the five region outlined since it has the greatest proportion of metropolitan areas and the highest average firms per county. To get a better idea of the true median average PM 2.5 concentration in Northeast counties, we calculated a confidence interval.
+We hypothesized that the Northeast would have the worst air quality among the five region outlined since it has the greatest proportion of metropolitan areas and the highest median population. To get a better idea of the true median average PM 2.5 concentration in Northeast counties, we calculated a confidence interval.
 
 ```{r}
 #| label: northeast-interval
@@ -260,47 +260,6 @@ null_dist |>
 ```
 
 Even though the point estimate is far away from the null distribution, we hypothesized the Northeast counties would have a higher median concentration of PM 2.5 particles, so the point estimate is far off in the wrong direction! Therefore, we got a p-value greater than 0.999, meaning we fail to reject our null hypothesis. The incredibly high p-value signifies a surprising trend: the Northeast counties actually have a lower median PM 2.5 concentration than other U.S. counties from 2008-2011, which is unexpected since the Northeast tends to have more firms and a high proportion metropolitan areas.
-
-```{r}
-
-counties2 <- counties |>
-  select(state, name, pop2011, metro_2013, firms_2007) |>
-  mutate(name = str_remove(name, " County"))
-
-concen2 <- concentrations |>
-  filter(ReportYear == 2011) |>
-  inner_join(counties2, by = c("StateName" = "state",
-                              "CountyName" = "name"))
-
-```
-
-```{r}
-
-concen2 |>
-  ggplot(aes(x = log(firms_2007), y = avg_concentration)) +
-  geom_point() +
-  geom_smooth()
-
-```
-
-
-```{r}
-
-concen2 |>
-  ggplot(aes(x = log(pop2011), y = avg_concentration)) +
-  geom_point() +
-  geom_smooth()
-
-```
-
-```{r}
-
-concen2 |>
-  mutate(metro = if_else(metro_2013 == 1, "Metro", "Not Metro")) |>
-  ggplot(aes(x = metro, y = avg_concentration)) +
-  geom_violin()
-
-```
 
 # Results
 
