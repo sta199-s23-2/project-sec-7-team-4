@@ -236,7 +236,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ✖ dplyr::lag()      masks stats::lag()
 ✖ yardstick::spec() masks readr::spec()
 ✖ recipes::step()   masks stats::step()
-• Use suppressPackageStartupMessages() to eliminate package startup messages</code></pre>
+• Use tidymodels_prefer() to resolve common conflicts.</code></pre>
 </div>
 </div>
 <p>Below is the analysis we used to support our hypothesis about the region we believe suffers from the most air pollution. We calculated the proportion of metropolitan areas to the number of counties per region in 2013 (a metropolitan county is a county with a population over 50,000). We found that the Northeast had the highest proportion of counties identified as metropolitan at ~60%.</p>
