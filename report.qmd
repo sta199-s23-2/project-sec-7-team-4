@@ -9,7 +9,7 @@ execute:
 
 # Introduction and Data
 
-Our research is motivated by the desire to understand how air pollution differs between the various regions in the United States. We will be investigating the research question of how do air pollution levels differ between states from the West, Southwest, Midwest, Southeast, and Northeast as defined by the National Geographic Society of the mainland United States from the years 2008-2011. Also, we will use data from "Air Quality Measures on the National Environmental Health Tracking Network*"* in order to have data about air pollution across the United States. This data set provides values of air pollution from 4,000 monitoring stations across the United States which are identified by the state, county name, and other digit identifiers as well. We also will examine how air pollution is related to population levels. The data regarding population levels came from the data set "United States counties" which contains information about population and industry.
+Our research is motivated by the desire to understand how air pollution differs between the various regions in the United States. We will be investigating the research question of how do air pollution levels differ between states from the West, Southwest, Midwest, Southeast, and Northeast as defined by the National Geographic Society of the mainland United States from the years 2008-2011. Also, we will use data from "Air Quality Measures on the National Environmental Health Tracking Network*"* in order to have data about air pollution across the United States. This data set provides values of air pollution from 4,000 monitoring stations across the United States which are identified by state, county name, and other digit identifiers as well. We also will examine how air pollution is related to population levels. The data regarding population levels came from the data set "United States counties" which contains information about population and industry.
 
 In order to achieve our goal, we will be performing statistical analysis on the annual average ambient concentrations of PM 2.5 in micrograms per cubic meter, based on seasonal averages and daily measurement (monitor and modeled data) in the air pollution data set. PM 2.5 refers to particles in the air that are 2.5 microns (0.001 mm) or less in width. Because particles in the PM 2.5 size range can travel through the respiratory tract and reach the lungs, they can cause short and long term health problems. As such, PM 2.5 concentration is commonly used as a measurement for air quality and air pollution.
 
@@ -26,6 +26,7 @@ The article "Air Pollution Index Systems in the United States and Canada" explor
 ```{r}
 #| label: load-packages
 #| warning: false
+#| message: false
 
 library(tidyverse)
 library(tidymodels)
