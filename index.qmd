@@ -1,8 +1,8 @@
 ---
-title: "TEAM NAME"
+title: "TEAM 4"
 subtitle: "STA 199 Project"
 format: html
 editor: visual
 ---
 
-Add project abstract here.
+This project analyzes how levels of air pollution differ across the United States by comparing PM 2.5 measurements from 2018-2011 of each region (West, Southwest, Midwest, Northeast, Southeast).
