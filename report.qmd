@@ -322,7 +322,13 @@ Then, we analyzed how population levels play a role in the presence of pollution
 
 Then a hypothesis test was conducted to compare the difference in median PM 2.5 concentration per county among Northeast counties and all other counties. A hypothesis test was chosen because there were two options presented; therefore, a hypothesis test could provide evidence for which option was most true given the data. The alternative hypothesis was that the true median PM 2.5 concentration for Northeast counties from 2008-2011 is greater than the true median PM 2.5 concentration for all other counties; however, we failed to reject the null hypothesis that the true median PM 2.5 concentration for Northeast counties from 2008-2011 is the same as the true median PM 2.5 concentration for all other counties.
 
+# Discussion
+
 Based on the visualizations and summary statistics, we came to the conclusion that the Northeast has a lower true median annual PM 2.5 concentration than other regions in the United States. We were surprised to find that the Northeast region, the region with the most highest proportion of metropolitan areas and the greatest population, actually had a lower median PM 2.5 concentration than all other counties. Although we expected the Northeast to have the worst air quality, it turns out it has a lower typical fine particle concentration than other regions.
+
+The primary limitation of this data analysis is the short time span and older date of the data (only between 2008-2011). As a result, the air pollution data may no longer be accurate for each region in 2023, as drastic changes may have occurred in the past ten years. It is thus difficult to determine trends in air pollution and concretely determine causes without having a longer period of time to study and analyze. The analysis could thus be significantly improved if more recent data were available, allowing us to look at data over a longer period of time from 2008-2023.
+
+Another potential limitation of the results of this analysis is the aggregation of data into large regions, when levels of air pollution across the region likely vary significantly. Therefore, future research could be conducted for more specific and reasonable ways of dividing the country for analysis than broad regions. Additionally, there exist many more ways of measuring air pollution than just PM 2.5, so future work could also incorporate other indicators of air quality and air pollution beyond just PM 2.5.
 
 # Bibliography
 
